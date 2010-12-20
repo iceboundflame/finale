@@ -1,0 +1,50 @@
+/ Completed
+~ In progress
+- Not done
+
+/ Game Over detection - David
+/ Text over timebar - Yuzhi
+/ Scoring - Yuzhi
+/ Timed gameplay - David
+/ Queue of upcoming squares - David
+/ Better control, use polling - David
+/ MenuController - David
+/ Welcome screen design and layout - Yuzhi
+/ Text display on GameView - Yuzhi
+/ Animations framework - David
+	/ Motion blur - David
+	/ "Match made" Zoom effect - Brandon
+	/ Deletion explosion - Brandon
+~ Unit Tests - David, Brandon
+	/ TestLocation - Brandon
+	~ TestHighScores - Brandon
+	/ TestBoard - David
+/ Background image - David
+/ High score - Brandon
+/ Levels of increasing difficulty - David
+/ Change color of Match Highlighting depending on match color - David
+/ Powerups - David
+	/ Fastbar - David
+	/ Slowbar - David
+	- Timefreeze
+	/ Color destroyer - David
+	- Magnetized
+/ Timebar graphic - Yuzhi
+/ High Score graphics - Yuzhi
+/ Font - Yuzhi
+~ Sounds - Brandon
+/ Theming change every level and animation - David
+	- Make new level graphics!
+/ Pause Menu - Brandon
+/ Optimize time bar graphic drawing - David
+/ DEMO BUTTONS
+	/ Make Powerup - Brandon
+	/ Level Up - Brandon
+	/ Fix ConcurrentModificationExceptions - David
+- Resizability - David
+- Convert menus to use ImageManager (low priority)
+
+- Post-Project Reflection
+- User manual (instructions pages)
+- Functional Spec - reference PowerPoint and Javadocs
+	- Generate Javadocs

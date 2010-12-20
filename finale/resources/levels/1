@@ -1,0 +1,6 @@
+timebarAdvancePeriod=10
+holdTime=60
+dropPeriod=30
+scoreToAdvance=10000
+block1MatchColor=#ff8800
+block2MatchColor=#0088ff

@@ -1,0 +1,12 @@
+All times are in frame #s
+
+Timebar Advance Period
+Hold Time
+Drop Time
+Score To Advance
+
+Example:
+10
+60
+30
+2000

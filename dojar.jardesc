@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="D:/David/Desktop/finale.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/finale/dojar.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="true">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/finale/.project"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.events"/>
+        <file path="/finale/java.policy.applet"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics.level1"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics.level4"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.gameModel.powerUps"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics.level3"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.fonts"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.utils"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.animation"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.sounds"/>
+        <file path="/finale/TODO.txt"/>
+        <javaElement handleIdentifier="=finale/&lt;finale"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.controllers"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.views"/>
+        <file path="/finale/.classpath"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.levels"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics.level2"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.gameModel"/>
+    </selectedElements>
+</jardesc>
