@@ -27,18 +27,16 @@ import finale.utils.FilteredKeyListener;
    @author Sources - Killer Game Programming in Java
  */
 public class FinalePanel extends JPanel implements Runnable, ControllerChangeListener {
+	// Maximum number of frames that can be rendered without sleeping
+	// before a forced yield
     private static final int NO_DELAYS_PER_YIELD = 16;
-    /*
-     * Number of frames with a delay of 0 ms before the animation thread yields
-     * to other running threads.
-     */
-    private static final int MAX_FRAME_SKIPS = 5;
-    // no. of frames that can be skipped in any one animation loop
-    // i.e the games state is updated but not rendered
 
-    private Thread animator; // the thread that performs the animation
-    private volatile boolean running = false; // used to stop the animation
-    // thread
+    // Number of renders that can be skipped in any one animation loop
+    // i.e max number of game updates that can run per render
+    private static final int MAX_FRAME_SKIPS = 5;
+
+    private Thread animator;
+    private volatile boolean running = false;
     private volatile boolean isPaused = false;
 
     private long period; // period between drawing in _nanosecs_
@@ -62,10 +60,10 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
     public FinalePanel(long period) {
         this.period = period;
 
-        setDoubleBuffered(false);
+        setDoubleBuffered(false); // we have DIY double-buffering
         setBackground(Color.BLACK);
-        setPreferredSize(new Dimension(806, 434));
-        setIgnoreRepaint(true);
+        setPreferredSize(new Dimension(744, 434));
+        setIgnoreRepaint(true); // active rendering takes control
 
         setFocusable(true);
         requestFocus(); // the JPanel now has focus, so receives key events
@@ -193,7 +191,7 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
                 System.out.print(" [ FPS: "+fps+" FrameDrops:"+drops+" Frames:"+framesInLastSecond+" ]\n");
 
                 float locPerSec = (float)Location.creations * 1000000000/statsElapsed;
-//                System.out.println("  Location instantiations: "+locPerSec+"/sec");
+                System.out.println("  Location instantiations: "+locPerSec+"/sec");
                 Location.creations = 0;
                 
                 framesInLastSecond = updatesInLastSecond = 0;
@@ -239,18 +237,15 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
 
     // use active rendering to put the buffered image on-screen
     private void paintScreen() {
-        Graphics g;
-        try {
-            g = this.getGraphics();
-            if ((g != null) && (dbImage != null))
-                g.drawImage(dbImage, 0, 0, null);
-            // Sync the display on some systems.
-            // (on Linux, this fixes event queue problems)
-            Toolkit.getDefaultToolkit().sync();
+        Graphics g = this.getGraphics();
+        if (g != null) {
+            if (dbImage != null)
+            	g.drawImage(dbImage, 0, 0, null);
             g.dispose();
-        } catch (Exception e) {
-            System.out.println("Graphics context error: " + e);
         }
+        // Sync the display on some systems.
+        // (on Linux, this fixes event queue problems)
+        Toolkit.getDefaultToolkit().sync();
     }
 
     public void transferControl(Controller newController) {

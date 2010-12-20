@@ -56,7 +56,6 @@ public class MenuController implements Controller {
     }
     
     private void selected(int sel) {
-        System.out.println(menuitems[sel]);
         switch (sel) {
             case 0: // new challenge game
                 changeListener.transferControl(new ChallengeGameController());

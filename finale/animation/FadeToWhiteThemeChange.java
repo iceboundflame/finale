@@ -52,7 +52,6 @@ public class FadeToWhiteThemeChange implements Animation {
 		} else {
 			alpha = 1.0f - (float)(time - halfDur) / (duration - halfDur);
 		}
-//		System.out.println(alpha);
 		Composite oldComp = g.getComposite();
 		g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
 		g.setColor(Color.WHITE);

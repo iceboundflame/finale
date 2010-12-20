@@ -5,6 +5,7 @@ import java.applet.AudioClip;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.HashMap;
@@ -45,34 +46,41 @@ public class ResourceManager {
 	 * Loads an image with the specified file name.
 	 * @param filename : the file name of the Image, no extension.
 	 */
-	public void preloadImage(String filename) {
-		try {
-			if (!loadedCache.containsKey(filename)) {
-				System.out.println("Loading image "+filename);
-				
-				InputStream strm = getClass().getClassLoader().getResourceAsStream(
-						filename+".jpg");
-				if (strm == null)
-					strm = getClass().getClassLoader().getResourceAsStream(
-							filename+".png");
-				
-				loadedCache.put(filename, ImageIO.read(strm));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			loadedCache.put(filename,
-					new BufferedImage(1,1,BufferedImage.TYPE_4BYTE_ABGR));
+	public void preloadImage(final String filename) {
+		if (loadedCache.containsKey(filename)) {
+			//
+		} else {
+			loadedCache.put(filename, new BufferedImage(1,1,BufferedImage.TYPE_4BYTE_ABGR));
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					System.out.println("Loading image "+filename);
+					
+					ClassLoader cl = getClass().getClassLoader();
+					InputStream strm = cl.getResourceAsStream(filename+".jpg");
+					if (strm == null)
+						strm = cl.getResourceAsStream(filename+".png");
+					
+					try {
+						loadedCache.put(filename, ImageIO.read(strm));
+						scaledCache.remove(filename);
+					} catch (IOException e) {
+						System.err.println("Failed to load "+filename);
+						e.printStackTrace();
+					}
+				}
+			}).start();
 		}
 	}
 	public void preloadFont(String filename) {
-		try {
-			if (!loadedFontCache.containsKey(filename)) {
-				System.out.println("Loading font "+filename);
+		if (!loadedFontCache.containsKey(filename)) {
+			System.out.println("Loading font "+filename);
+			try {
 				loadedFontCache.put(filename, Font.createFont(Font.TRUETYPE_FONT,
 						getClass().getClassLoader().getResourceAsStream(filename) ));
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 	public BufferedImage get(String filename, int width, int height) {
