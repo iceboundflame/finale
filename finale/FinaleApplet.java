@@ -1,8 +1,6 @@
 package finale;
 
 import java.awt.Container;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 
 import javax.swing.JApplet;
 

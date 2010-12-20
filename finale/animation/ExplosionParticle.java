@@ -105,7 +105,7 @@ public class ExplosionParticle implements Animation{
 
 	public boolean step() {
 		time++;
-		double SPEED = 500;
+//		double SPEED = 500;
 		if (time == 2*duration/3 && generation < 1) {
 //			view.animate(new ExplosionParticle(ctl, view, SPEED-2*SPEED*Math.random(), -SPEED*Math.random(), loc, duration, xoff, yoff, generation+1));
 //			view.animate(new ExplosionParticle(ctl, view, SPEED-2*SPEED*Math.random(), -SPEED*Math.random(), loc, duration, xoff, yoff, generation+1));

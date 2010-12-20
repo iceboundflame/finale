@@ -88,7 +88,6 @@ public class TimeBar {
 	}
 	
 	public Set<Block> getMarked() {
-//		return new TreeSet<Block>(deletions);	// prevent concurrent exception; FIXME find real reason
 		return deletions;
 	}
 	public int getNumDeleted() {

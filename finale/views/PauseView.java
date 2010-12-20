@@ -126,7 +126,6 @@ public class PauseView implements View {
 		Rectangle pauseRect = new Rectangle(rectX, rectY, rectWidth, rectHeight);
 		g.fill(pauseRect);
 		String[] items = ctl.getItems();
-        int sel = ctl.getSelectionIndex();
         g.setColor(Color.white);
         for (int i = 0; i < items.length; i++) {
     		int itemFadeInTime = (fadeInTime - (i+1)*4)*2;

@@ -9,6 +9,7 @@ import java.util.Queue;
 import finale.Controller;
 import finale.ControllerChangeListener;
 import finale.animation.FadeToWhiteThemeChange;
+import finale.animation.HiScoreFireworks;
 import finale.events.BlockDestroyed;
 import finale.events.GameEvent;
 import finale.events.MatchMade;
@@ -339,6 +340,10 @@ public class GameController implements Controller
 					// sound test
 				    ResourceManager.getInstance().playSound("deletion");
 				    break;
+				case KeyEvent.VK_H:
+					// animation test
+				    view.animate(new HiScoreFireworks(view, this));
+				    break;
 				case KeyEvent.VK_X:
 					square = new ActiveSquare(board, DEFAULT_ACTIVESQUARE_LOC, ActiveSquare.POWERUP);
 	                squareLifeTime = 0;
@@ -366,6 +371,7 @@ public class GameController implements Controller
     private void notifyGameOver()
     {
     	System.out.println("Game Over!");
+    	view.animate(new HiScoreFireworks(view, this));
     	gameOver = true;
     	changeListener.transferControl(new HighScoreInputController(this));
     }

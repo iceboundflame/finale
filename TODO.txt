@@ -5,3 +5,6 @@ Invite your friends to play
 "Less than a minute ago" in alltime & friends hs's is wrong
 Sometimes opens up with Graphics context error: NullPointerException + lag
 Test all authentication paths
+
+
+Something's still not right with the scaled cache. sometimes an invisible picture can get stuck in there, wont go away til resize.

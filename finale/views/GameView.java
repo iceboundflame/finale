@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
+import java.util.TreeSet;
 
 import finale.View;
 import finale.animation.Animation;
@@ -55,6 +56,8 @@ public class GameView implements View
     private static final String IMG_BLOCK1 = "block1";
     private static final String IMG_BLOCK2 = "block2";
     private Level level;
+
+	private Set<Location> hide = new TreeSet<Location>();
     
 //    private MP3 bg = new MP3("finale/resources/sounds/bg.mp3");
     
@@ -64,6 +67,20 @@ public class GameView implements View
         
     	font = imgs.getFont("xirod.ttf").deriveFont(defaultFontSize);
     	timeFont = imgs.getFont("FeaturedItem.ttf").deriveFont(defaultTimeFontSize);
+    }
+    
+    private void loadBlocksHiddenByAnimation() {
+    	hide.clear();
+    	for (Animation a : animations) {
+            Block blksToHide[] = a.getBlocksToHide();
+            if (blksToHide == null) continue;
+            for (Block blk : blksToHide) {
+            	hide.add(blk.getLocation());
+            }
+        }
+    }
+    private boolean isHidden(Location loc) {
+    	return hide.contains(loc);
     }
     
     private Rectangle calculateDimensions(Rectangle b) {
@@ -118,6 +135,8 @@ public class GameView implements View
         
 //        g.setColor( Color.BLACK );
 //        g.fill( field );
+
+        loadBlocksHiddenByAnimation();
         
         drawBlocks(g, field);
         
@@ -126,7 +145,11 @@ public class GameView implements View
         drawMatches(g, field);
         drawSingleMatches(g, field);
         
-//        drawPowerUps(g, field);
+        drawTimeBar(g, field);
+        
+        drawUpcoming(g, b);
+        
+        drawScore(g, b);
         
         while (!newanimations.isEmpty()) {
         	animations.add(newanimations.remove());
@@ -140,14 +163,6 @@ public class GameView implements View
                 it.remove();
             }
         }
-        
-//        drawGrid(g, field);
-        
-        drawTimeBar(g, field);
-        
-        drawUpcoming(g, b);
-        
-        drawScore(g, b);
     }
     
     /**
@@ -158,14 +173,23 @@ public class GameView implements View
         newanimations.add(anim);
     }
 
-    private void drawSingleBlock(Graphics2D g, Rectangle field, Block blk, Location loc) {
+    private void drawSingleBlock(
+    	Graphics2D g, Rectangle field, Block blk, Location loc) {
+    	
+    	drawSingleBlock(g, field, blk, loc, false);
+    }
+    
+    private void drawSingleBlock(
+    	Graphics2D g, Rectangle field, Block blk,
+    	Location loc, boolean ignoreHide) {
+    	
         if (blk != null) {
+        	if (!ignoreHide && isHidden(loc)) return;
+        	
             Rectangle rect = gridToScreen(loc, field);
             g.drawImage(getBlockImage(blk.getColor()), rect.x, rect.y, rect.width, rect.height, null);
             if (blk instanceof PowerUpContainerBlock) {
             	PowerUp power = ((PowerUpContainerBlock)blk).getPowerUp();
-//            	g.setColor(new Color(0,255,0,128));
-//            	g.fillOval(rect.x, rect.y, rect.width, rect.height);
             	BufferedImage powerImg = ResourceManager.getInstance().get(
             			"power_"+power.getShortName(),
             			rect.width-6, rect.height-6
@@ -201,36 +225,6 @@ public class GameView implements View
         }
     }
     
-//    private void drawPowerUps(Graphics2D g, Rectangle field) {
-//        List<PowerUpContainer> pupsOnField = ctl.getPowerUpsOnField();
-//        for (PowerUpContainer pup : pupsOnField) {
-//            Location loc = pup.getLocation();
-//            Rectangle rect = gridToScreen(loc, field);
-//            g.setColor(new Color(0,255,0,128));
-//            g.fillOval(rect.x, rect.y, rect.width, rect.height);
-//        }
-//    }
-    
-//    private void drawGrid(Graphics2D g, Rectangle field) {
-//        for (int r = 0; r < board.getRows(); r++) {
-//            for (int c = 0; c < board.getCols(); c++) {
-//                Location loc = new Location(r, c);
-//                Rectangle rect = gridToScreen(loc, field);
-//                g.setStroke(new BasicStroke(1.0f));
-//                g.setColor( Color.GRAY );
-//                g.draw(rect);
-//            }
-//        }
-//        Rectangle lineOfDeath = new Rectangle(
-//            field.x,
-//            field.y + field.height - (int)(field.height / board.getRows()) * (board.getRows() - 2),
-//            field.width,
-//            4
-//        );
-//        g.setColor(new Color(0,255,0,180));
-//        g.fill(lineOfDeath);
-//    }
-    
     private void drawSingleMatches(Graphics2D g, Rectangle field) {
         Set<Location> smatches = board.getSingleMatches();
         
@@ -246,6 +240,8 @@ public class GameView implements View
         
         Level level = ctl.getLevel();
         for (Location matchLoc : matches) {
+        	if (isHidden(matchLoc)) continue;
+        	
             Rectangle match1 = gridToScreen(matchLoc, field);
             Rectangle match2 = gridToScreen(new Location(matchLoc.getRow()+1, matchLoc.getCol()+1), field);
             Rectangle box = new Rectangle(match1.x, match1.y+match1.height,
@@ -275,15 +271,15 @@ public class GameView implements View
         double micropos = ctl.getTimeBarMicroPosition();
         
         double x = bar.getLocation() + micropos;
-        //g.setColor(new Color(255,0,0,128));
         
-       // g.fillRect(field.x + x*sqWidth - sqWidth/10, field.y, sqWidth/5, field.height);
         int w = sqWidth*2;
         int h = sqWidth*12;
         g.drawImage(imgs.get(level.getThemeBase()+IMG_TIMEBAR, w, h),
         		(int)(field.x + (x-1)*sqWidth-5), field.y+ sqWidth-5, w, h, null);
         Set<Block> marked = ctl.getTimeBar().getMarked();
         for (Block blk : marked) {
+        	if (isHidden(blk.getLocation())) continue;
+        	
             Rectangle rect = gridToScreen(blk.getLocation(), field);
             g.setColor( new Color(255,0,0,180) );
             g.fillRect( rect.x+5, rect.y+5, rect.width-10, rect.height-10 );
@@ -297,7 +293,6 @@ public class GameView implements View
         g.setColor(Color.WHITE);
         DrawUtil.drawMultilineStringCentered(g, strx, stry,
         		"" + bar.getNumDeleted());
-//        g.drawString("" + bar.getNumDeleted(), (int)(field.x +x*sqWidth-2) , field.y - 15 +2*sqWidth) ;
     }
     
     private void drawUpcoming(Graphics2D g, Rectangle b) {
@@ -318,13 +313,7 @@ public class GameView implements View
                     realLoc.getCol() - upLeft.getCol()
                 );
 
-                drawSingleBlock(g, squareBounds, blks[i], fauxLoc);
-//                Rectangle rect = gridToScreen(fauxLoc, squareBounds);
-//                rect.y += yOffset;
-//                g.drawImage(
-//                    getBlockImage(blks[i].getColor()),
-//                    rect.x, rect.y, rect.width, rect.height, null
-//                );
+                drawSingleBlock(g, squareBounds, blks[i], fauxLoc, true);
             }
             squareBounds.y += 2.5 * sqHeight;
         }
