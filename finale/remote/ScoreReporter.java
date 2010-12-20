@@ -1,4 +1,4 @@
-package finale.controllers;
+package finale.remote;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -14,15 +14,19 @@ import finale.utils.StringEscaper;
 
 public class ScoreReporter {
 	private String submitURL, tok;
+	private FinaleApplet applet;
 	
 	public ScoreReporter() {
-		submitURL = FinaleApplet.getInstance().getParameter("submitURL");
-		if (submitURL == null)
-			submitURL = "http://iceboundflame.com:3000/scores/submit";
-		tok = FinaleApplet.getInstance().getParameter("tok");
+		applet = FinaleApplet.getInstance();
+		if (applet != null) {
+			submitURL = applet.getParameter("submitURL");
+			tok = applet.getParameter("tok");
+		}
 	}
 	
 	public ScoreResult submitScore(int score, int level) {
+		if (submitURL == null)
+			return null;
 		try {
 			Map<String, String> params = new TreeMap<String,String>();
 			String record = String.valueOf(score) + " "
@@ -90,8 +94,10 @@ public class ScoreReporter {
     }
     
     public void refreshPageScores() {
+    	if (applet == null)
+    		return;
     	try {
-			FinaleApplet.getInstance().getAppletContext().showDocument(
+			applet.getAppletContext().showDocument(
 				new URL("javascript:refreshHS()")
 			);
 		} catch (MalformedURLException e) {
@@ -100,13 +106,15 @@ public class ScoreReporter {
     }
 
     public void postToFacebook(ScoreResult res) {
+    	if (applet == null)
+    		return;
     	try {
     		String url = "javascript:postScore('"+
     			StringEscaper.escapeJavaScript(res.captionString())+
     			"','"+
     			StringEscaper.escapeJavaScript(res.descriptionString())+
     			"')";
-			FinaleApplet.getInstance().getAppletContext().showDocument(
+			applet.getAppletContext().showDocument(
 				new URL(url)
 			);
 		} catch (MalformedURLException e) {

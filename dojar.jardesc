@@ -14,19 +14,20 @@
         <file path="/finale/.project"/>
         <javaElement handleIdentifier="=finale/&lt;finale.events"/>
         <file path="/finale/java.policy.applet"/>
-        <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics.level1"/>
-        <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics"/>
         <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics.level4"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics.level1"/>
         <javaElement handleIdentifier="=finale/&lt;finale.gameModel.powerUps"/>
         <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics.level3"/>
-        <javaElement handleIdentifier="=finale/&lt;finale.resources.fonts"/>
-        <javaElement handleIdentifier="=finale/&lt;finale.utils"/>
         <javaElement handleIdentifier="=finale/&lt;finale.animation"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.utils"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.resources.fonts"/>
         <javaElement handleIdentifier="=finale/&lt;finale.resources.sounds"/>
         <file path="/finale/TODO.txt"/>
         <javaElement handleIdentifier="=finale/&lt;finale"/>
         <javaElement handleIdentifier="=finale/&lt;finale.controllers"/>
         <javaElement handleIdentifier="=finale/&lt;finale.views"/>
+        <javaElement handleIdentifier="=finale/&lt;finale.remote"/>
         <file path="/finale/.classpath"/>
         <javaElement handleIdentifier="=finale/&lt;finale.resources.levels"/>
         <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics.level2"/>

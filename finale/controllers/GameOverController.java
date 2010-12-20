@@ -7,6 +7,8 @@ import finale.ControllerChangeListener;
 import finale.FinaleApplet;
 import finale.View;
 import finale.animation.HiScoreFireworks;
+import finale.remote.ScoreReporter;
+import finale.remote.ScoreResult;
 import finale.views.GameOverView;
 import finale.views.GameView;
 /**
@@ -23,7 +25,7 @@ public class GameOverController implements Controller {
 	private GameController gameCtl;
 	private int score, level;
 	private boolean cheated;
-	private String playerName = "";
+	private String playerName = null;
 //	private HighScoreList highScores = new HighScoreList();
 	private ControllerChangeListener changeListener;
 	private ScoreResult scoreResult = null;
@@ -41,7 +43,9 @@ public class GameOverController implements Controller {
 	public GameOverController(GameController gameCtl) {
 		this.gameCtl = gameCtl;
 		
-		playerName = FinaleApplet.getInstance().getParameter("playername");
+		FinaleApplet applet = FinaleApplet.getInstance();
+		if (applet != null)
+			playerName = applet.getParameter("playername");
 		if (playerName == null) playerName = "you";
 		
 		view = new GameOverView(this, gameCtl.getView());

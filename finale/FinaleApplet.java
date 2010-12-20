@@ -25,7 +25,5 @@ public class FinaleApplet extends JApplet {
         Container c = getContentPane(); // default BorderLayout used
         panel = new FinalePanel((long)(1e9/DEFAULT_FPS));
         c.add(panel, "Center");
-        
-//        this.requestFocus();
 	}
 }

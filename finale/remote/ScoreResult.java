@@ -1,4 +1,4 @@
-package finale.controllers;
+package finale.remote;
 
 import java.util.ArrayList;
 import java.util.List;

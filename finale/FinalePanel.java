@@ -81,7 +81,6 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
         });
         
         transferControl(new MenuController());
-//        transferControl(new GameController());
     }
 
     // Pass off keystroke input to the active controller

@@ -10,7 +10,7 @@ import java.awt.Rectangle;
 import finale.View;
 import finale.animation.HiScoreFireworks;
 import finale.controllers.GameOverController;
-import finale.controllers.ScoreResult;
+import finale.remote.ScoreResult;
 
 /**
  * Handles all the drawing for inputting highscores.  It saves a reference
