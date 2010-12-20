@@ -22,10 +22,11 @@ public class ScoreReporter {
 		tok = FinaleApplet.getInstance().getParameter("tok");
 	}
 	
-	public ScoreResult submitScore(int score) {
+	public ScoreResult submitScore(int score, int level) {
 		try {
 			Map<String, String> params = new TreeMap<String,String>();
-			String record = String.valueOf(score);
+			String record = String.valueOf(score) + " "
+				+ String.valueOf(level);
 			params.put("score", record);
 			params.put("vkey", generateScoreVerification(record));
 			params.put("tok", tok);
@@ -36,6 +37,7 @@ public class ScoreReporter {
 			
 			ScoreResult x = new ScoreResult();
 			x.score = score;
+			x.level = level;
 			x.isNewHigh = rd.nextBoolean();
 			x.numFriendsBeat = rd.nextInt();
 			for (int i = 0; i < x.numFriendsBeat; ++i) {
@@ -69,7 +71,7 @@ public class ScoreReporter {
         try {
             String key = "Welcome to FINALE!";
             
-	        String message = record + "-" + key;
+	        String message = record + key;
 	        MessageDigest digester = MessageDigest.getInstance("SHA-512");
 	        digester.reset();
 	        digester.update(message.getBytes());

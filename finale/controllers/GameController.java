@@ -371,9 +371,8 @@ public class GameController implements Controller
     private void notifyGameOver()
     {
     	System.out.println("Game Over!");
-    	view.animate(new HiScoreFireworks(view, this));
     	gameOver = true;
-    	changeListener.transferControl(new HighScoreInputController(this));
+    	changeListener.transferControl(new GameOverController(this));
     }
     
     /**

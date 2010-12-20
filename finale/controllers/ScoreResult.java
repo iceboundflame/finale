@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class ScoreResult {
-	public int score;
+	public int score, level;
 	public boolean isNewHigh;
 	public int numFriendsBeat;
 	public List<String> friendsBeat = new ArrayList<String>();

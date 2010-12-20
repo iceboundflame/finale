@@ -6,7 +6,9 @@ import finale.Controller;
 import finale.ControllerChangeListener;
 import finale.FinaleApplet;
 import finale.View;
-import finale.views.HighScoreInputView;
+import finale.animation.HiScoreFireworks;
+import finale.views.GameOverView;
+import finale.views.GameView;
 /**
 This HighScoreInputController controls name input for new high scores.  It will 
 save the entered name and high score
@@ -15,10 +17,11 @@ save the entered name and high score
 @version June 4th, 2008
 @author FINALE
 */
-public class HighScoreInputController implements Controller {
+public class GameOverController implements Controller {
 	
-	private HighScoreInputView view;
-	private int score;
+	private GameOverView view;
+	private GameController gameCtl;
+	private int score, level;
 	private boolean cheated;
 	private String playerName = "";
 //	private HighScoreList highScores = new HighScoreList();
@@ -35,21 +38,25 @@ public class HighScoreInputController implements Controller {
 	/**
 	   @param gameCtl : controller of the game for the score
 	 */
-	public HighScoreInputController(GameController gameCtl) {
+	public GameOverController(GameController gameCtl) {
+		this.gameCtl = gameCtl;
+		
 		playerName = FinaleApplet.getInstance().getParameter("playername");
 		if (playerName == null) playerName = "you";
 		
-		view = new HighScoreInputView(this, gameCtl.getView());
+		view = new GameOverView(this, gameCtl.getView());
 		score = gameCtl.getScore();
+		level = gameCtl.getLevelNum();
 		cheated = gameCtl.getCheated();
 		if (!cheated) {
 			final ScoreReporter report = new ScoreReporter();
 			
 			new Thread(new Runnable() {
 				public void run() {
-					scoreResult = report.submitScore(score);
+					scoreResult = report.submitScore(score, level);
 					report.refreshPageScores();
 //					report.postToFacebook(scoreResult);
+					
 					isDoneSubmitting = true;
 				}
 			}).start();
@@ -58,11 +65,15 @@ public class HighScoreInputController implements Controller {
 		}
 	}
 	
-	/**
-	   @return score of the last game
-	 */
+	public GameController getOldCtl() {
+		return gameCtl;
+	}
+	
 	public int getScore() {
 		return score;
+	}
+	public int getLevelNum() {
+		return level;
 	}
 	public boolean isDoneSubmitting() {
 		return isDoneSubmitting;
