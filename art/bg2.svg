@@ -16,7 +16,7 @@
    sodipodi:version="0.32"
    inkscape:version="0.48.0 r9654"
    version="1.0"
-   inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics\level2\bg.png"
+   inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\level2\bg.png"
    inkscape:export-xdpi="78.739998"
    inkscape:export-ydpi="78.739998"
    sodipodi:docname="bg2.svg"
@@ -32,16 +32,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.72627136"
-     inkscape:cx="317.94813"
-     inkscape:cy="204.36459"
+     inkscape:cx="440.49186"
+     inkscape:cy="218.13355"
      inkscape:document-units="cm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="cm"
      borderlayer="true"
      inkscape:showpageshadow="false"
-     inkscape:window-width="1362"
-     inkscape:window-height="742"
+     inkscape:window-width="1149"
+     inkscape:window-height="642"
      inkscape:window-x="-32000"
      inkscape:window-y="-32000"
      inkscape:window-maximized="0">
@@ -75,11 +75,11 @@
       <stop
          id="stop3343"
          offset="0"
-         style="stop-color:#c1d388;stop-opacity:0.6137566" />
+         style="stop-color:#141809;stop-opacity:0.38829789" />
       <stop
          id="stop3345"
          offset="1"
-         style="stop-color:#385f04;stop-opacity:1" />
+         style="stop-color:#315304;stop-opacity:0.72872341" />
     </linearGradient>
     <linearGradient
        id="linearGradient3325">
@@ -157,15 +157,15 @@
       <stop
          id="stop3766"
          offset="0"
-         style="stop-color:#000000;stop-opacity:0;" />
+         style="stop-color:#000000;stop-opacity:0.48404256" />
       <stop
-         style="stop-color:#000000;stop-opacity:0.3482143;"
-         offset="0.47479457"
+         style="stop-color:#000000;stop-opacity:0.34042552"
+         offset="0.54437381"
          id="stop3323" />
       <stop
          id="stop3768"
          offset="1"
-         style="stop-color:#000000;stop-opacity:0.52678573;" />
+         style="stop-color:#000000;stop-opacity:0.52127659" />
     </linearGradient>
     <inkscape:perspective
        id="perspective3223"

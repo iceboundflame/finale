@@ -1,10 +1,17 @@
 TODO
 
-Integrate contiguous-destroyer, scoring
-Invite your friends to play
+Internet Explorer issues
+	Was able to lose focus permanently somehow, despite menu still flashing
+		Long-term focus solutions?
+	AJAX HS "Loading..." does not seem to send cookies??
+	Rendering seems 1px smaller in height -- bar along bottom
+
 "Less than a minute ago" in alltime & friends hs's is wrong
+Invite your friends to play
 Sometimes opens up with Graphics context error: NullPointerException + lag
 Test all authentication paths
+
+/ Integrate contiguous-destroyer, scoring
 
 / Report level that you're on
 / Something's still not right with the scaled cache. sometimes an invisible picture can get stuck in there, wont go away til resize.
