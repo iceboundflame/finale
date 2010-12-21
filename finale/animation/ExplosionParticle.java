@@ -32,6 +32,7 @@ public class ExplosionParticle implements Animation{
 	private Location loc;
 	private GameView view;
 	private GameController ctl;
+	private Color color;
 	private double xoff, yoff;
 	private long lastLoopTime;
 	private int generation = 0;
@@ -50,25 +51,29 @@ public class ExplosionParticle implements Animation{
 	 * @param duration : The duration of the ExplosionParticle.
 	 */
 	public ExplosionParticle(GameController ctl, GameView view, double dx, double dy,
-			Location loc, int duration, double xoff, double yoff, int generation)
-	{
+			Location loc, int duration, Color color,
+			double xoff, double yoff, int generation) {
 		this.ctl = ctl;
 		this.view = view;
 		this.dx = dx;
 		this.dy = dy;
 		this.loc = loc;
 		this.duration = duration;
-		this.generation = generation;
-		time = 1;
+		this.color = color;
 		this.xoff = xoff;
 		this.yoff = yoff;
+		this.generation = generation;
+		time = 1;
 		lastLoopTime = System.currentTimeMillis();
 	}
 	
 	public ExplosionParticle(GameController ctl, GameView view, double dx, double dy,
-			Location loc, int duration)
-	{
-		this(ctl, view, dx, dy, loc, duration, 0, 0, 0);
+			Location loc, int duration) {
+		this(ctl, view, dx, dy, loc, duration, Color.WHITE, 0, 0, 0);
+	}
+	public ExplosionParticle(GameController ctl, GameView view, double dx, double dy,
+			Location loc, int duration, Color color) {
+		this(ctl, view, dx, dy, loc, duration, color, 0, 0, 0);
 	}
 
 	public void draw(Graphics2D g, Rectangle b, Rectangle field) {
@@ -80,7 +85,7 @@ public class ExplosionParticle implements Animation{
 		int y = field.y + (ctl.getBoard().getRows() - loc.getRow())*grid.height - grid.height/2;
 		
 //		g.setColor(generation == 0 ? Color.RED : Color.WHITE);
-		g.setColor(Color.WHITE);
+		g.setColor(color);
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.75f));
 		//Rectangle particle = new Rectangle(x + (int)xoff, y + (int)yoff, INITIAL_SIZE/time, INITIAL_SIZE/time);
         //Shape particle = new Ellipse2D.Float(INITIAL_SIZE/time, INITIAL_SIZE/time, INITIAL_SIZE/time, INITIAL_SIZE/time);

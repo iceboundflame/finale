@@ -18,7 +18,7 @@
    sodipodi:docname="instructions2.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
-   inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics\instructions2.png"
+   inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\instructions2.png"
    inkscape:export-xdpi="78.739998"
    inkscape:export-ydpi="78.739998"
    style="display:inline">
@@ -32,9 +32,9 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.57361527"
-     inkscape:cx="511.50714"
-     inkscape:cy="216.78266"
+     inkscape:zoom="1.1472305"
+     inkscape:cx="343.45955"
+     inkscape:cy="158.8507"
      inkscape:document-units="cm"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -5175,19 +5175,19 @@
     <text
        id="text3177"
        y="123.20321"
-       x="107.10091"
+       x="111.10091"
        style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
        xml:space="preserve"><tspan
          id="tspan5388"
          style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
          y="123.20321"
-         x="107.10091"
+         x="111.10091"
          sodipodi:role="line">Matched squares are deleted when the <tspan
    style="font-weight:bold;text-align:start;text-anchor:start;-inkscape-font-specification:DejaVu Sans Mono Bold"
    id="tspan3970">Time Bar</tspan> passes.</tspan><tspan
          style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
          y="150.70322"
-         x="107.10091"
+         x="111.10091"
          sodipodi:role="line"
          id="tspan5370" /></text>
     <rect
@@ -5218,56 +5218,26 @@
     <text
        xml:space="preserve"
        style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-       x="109.41559"
+       x="112.02473"
        y="201.74121"
        id="text4107"><tspan
          sodipodi:role="line"
-         x="109.41559"
+         x="112.02473"
          y="201.74121"
          style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
          id="tspan3952">When the time bar gets to the right side of the screen,</tspan><tspan
          sodipodi:role="line"
-         x="109.41559"
+         x="112.02473"
          y="229.24121"
          style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         id="tspan3960">you get points for any matches. Take note, comboes are</tspan><tspan
+         id="tspan3964">you get points for any matches. Comboes are rewarded!</tspan><tspan
          sodipodi:role="line"
-         x="109.41559"
+         x="112.02473"
          y="256.74121"
          style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         id="tspan3964">rewarded exponentially! Earn enough points to proceed</tspan><tspan
-         sodipodi:role="line"
-         x="109.41559"
-         y="284.24121"
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         id="tspan3984">to <tspan
+         id="tspan3873">Earn enough points to proceed to <tspan
    style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold"
-   id="tspan3992">new levels</tspan>.</tspan><tspan
-         sodipodi:role="line"
-         x="109.41559"
-         y="311.74121"
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         id="tspan3950" /><tspan
-         sodipodi:role="line"
-         x="109.41559"
-         y="339.24121"
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         id="tspan3863">    1 match   = 2 points      10 matches = 1024 points!</tspan><tspan
-         sodipodi:role="line"
-         x="109.41559"
-         y="366.74121"
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         id="tspan3986">    2 matches = 4 points      11 matches = 2048 points!</tspan><tspan
-         sodipodi:role="line"
-         x="109.41559"
-         y="394.24121"
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         id="tspan3869">    3 matches = 8 points      ...</tspan><tspan
-         sodipodi:role="line"
-         x="109.41559"
-         y="421.74121"
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         id="tspan3873">        </tspan></text>
+   id="tspan3992">new levels</tspan>.</tspan></text>
     <g
        id="g4522"
        transform="matrix(0.6115847,0,0,0.6633131,31.13383,948.82726)">
@@ -5405,5 +5375,65 @@
            y="115.46098"
            style="fill:#ffffff">9</tspan></text>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+       x="464.9599"
+       y="338.63403"
+       id="text4107-4"><tspan
+         sodipodi:role="line"
+         x="464.9599"
+         y="338.63403"
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+         id="tspan3953" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3967"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(25.89326,-26.406436)"><flowRegion
+         id="flowRegion3969"><rect
+           id="rect3971"
+           width="364.35571"
+           height="115.0597"
+           x="458.49545"
+           y="318.24347" /></flowRegion><flowPara
+         id="flowPara3973"
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono">So if you had <flowSpan
+   style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold"
+   id="flowSpan3975">3 matches<flowSpan
+   style="font-weight:normal;-inkscape-font-specification:DejaVu Sans Mono"
+   id="flowSpan3979"> in one sweep of the Time Bar, you would earn </flowSpan></flowSpan>100 + 200 + 300 = <flowSpan
+   style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold"
+   id="flowSpan3977">600 points</flowSpan>!</flowPara></flowRoot>    <text
+       id="text4015"
+       y="281.73788"
+       x="139.05217"
+       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+       xml:space="preserve"><tspan
+         id="tspan4025"
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+         y="281.73788"
+         x="139.05217"
+         sodipodi:role="line" /><tspan
+         id="tspan4027"
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+         y="309.23788"
+         x="139.05217"
+         sodipodi:role="line">1st match = 100 points</tspan><tspan
+         id="tspan4029"
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+         y="336.73788"
+         x="139.05217"
+         sodipodi:role="line">2nd match = 200 points</tspan><tspan
+         id="tspan4031"
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+         y="364.23788"
+         x="139.05217"
+         sodipodi:role="line">3rd match = 300 points</tspan><tspan
+         id="tspan4033"
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+         y="391.73788"
+         x="139.05217"
+         sodipodi:role="line">...</tspan></text>
   </g>
 </svg>

@@ -4,18 +4,21 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import finale.events.BlockDestroyed;
+import finale.events.ChainDestroyerDestroyed;
 
 public class TimeBar {
 	private Board board;
 	private int locColumn;
-	private Set<Block> deletions;
-	private Set<Location> matchMarked;
+	private Set<Block> markedBlocks;
+	private Set<Location> markedMatchLocations, markedChainDestroyerLocations;
 	private int numDeleted;
+	
 	public TimeBar(Board b) {
 		board = b;
 		locColumn = 0;
-		deletions = new TreeSet<Block>();
-		matchMarked = new TreeSet<Location>();
+		markedBlocks = new TreeSet<Block>();
+		markedMatchLocations = new TreeSet<Location>();
+		markedChainDestroyerLocations = new TreeSet<Location>();
 		numDeleted = 0;
 	}
 
@@ -25,17 +28,21 @@ public class TimeBar {
 	   @return number of matches at the end of the scan of the grid
 	 */
 	public int advance() {
-		// if no new blocks are marked, or we have reached the end of the board, then do deletions
-		if (!markToDelete() || locColumn == board.getCols() - 1)
+		if (locColumn == board.getCols() - 1) { // at end of board
 			doDelete();
-		locColumn = (locColumn + 1) % board.getCols();
-		if (locColumn == 0)
-		{
-		    int temp = numDeleted;
-		    numDeleted= 0;
-		    return temp;
+			locColumn = 0;
+			
+			int dels = numDeleted;
+			numDeleted = 0;
+			return dels;
+		} else {
+			boolean markedAny = markToDelete();
+			if (!markedAny)
+				doDelete(); // delete once we're past any group of matches
+			
+			++locColumn;
+			return 0;
 		}
-		return 0;
 	}
 
 	private boolean markToDelete() {
@@ -48,22 +55,22 @@ public class TimeBar {
 			Block thisBlk = board.get(thisLoc);
 			
 			if (board.getSingleMatches().contains(thisLoc)) {
-				// deleting single match (usually from DestroyerBlock)
-			    matchMarked.add(thisLoc);
-				deletions.add(thisBlk);
+				// deleting single match (usually from ChainDestroyerBlock)
+			    markedChainDestroyerLocations.add(thisLoc);
+				markedBlocks.add(thisBlk);
 				marked = true;
-			} else {
-				// look for match squares that would include this location
-				outer:
-				for (int offsetR : offsets) {
-					for (int offsetC : offsets) {
-						Location matchloc = new Location(r+offsetR, locColumn+offsetC);
-						if (board.getMatches().contains(matchloc)) {
-						    matchMarked.add(matchloc);
-							deletions.add(thisBlk);
-							marked = true;
-							break outer;
-						}
+			}
+			
+			// look for match squares that would include this location
+			outer:
+			for (int offsetR : offsets) {
+				for (int offsetC : offsets) {
+					Location matchloc = new Location(r+offsetR, locColumn+offsetC);
+					if (board.getMatches().contains(matchloc)) {
+					    markedMatchLocations.add(matchloc);
+						markedBlocks.add(thisBlk);
+						marked = true;
+						break outer;
 					}
 				}
 			}
@@ -73,22 +80,32 @@ public class TimeBar {
 	}
 
 	private void doDelete() {
-		if (deletions.isEmpty())
+		if (markedBlocks.isEmpty())
 			return;
 		
 //		System.err.println("Doing deletions");
-		for (Block blk : deletions) {
+		for (Block blk : markedBlocks) {
 			blk.removeFromBoard();
-			board.addEvent(new BlockDestroyed(blk.getLocation()));
+			
+			int type = BlockDestroyed.TYPE_NORMAL;
+			if (markedChainDestroyerLocations.contains(blk.getLocation()))
+				type = BlockDestroyed.TYPE_CHAIN;
+			board.addEvent(new BlockDestroyed(blk.getLocation(), blk.getColor(), type));
 		}
-		numDeleted += matchMarked.size();
-		matchMarked.clear();
-		deletions.clear();
+		markedBlocks.clear();
+		
+		board.addEvent(new ChainDestroyerDestroyed(
+				markedChainDestroyerLocations.size()));
+		markedChainDestroyerLocations.clear();
+		
+		numDeleted += markedMatchLocations.size();
+		markedMatchLocations.clear();
+		
 		board.gravitate();
 	}
 	
 	public Set<Block> getMarked() {
-		return deletions;
+		return markedBlocks;
 	}
 	public int getNumDeleted() {
 	    return numDeleted;

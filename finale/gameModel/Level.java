@@ -134,5 +134,9 @@ public class Level {
 	private static String levelFilename(int num) {
 		return "finale/resources/levels/"+num;
 	}
+
+	public String getBlockMatchColor(boolean color) {
+		return color ? block1MatchColor : block2MatchColor;
+	}
 	
 }

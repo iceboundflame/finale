@@ -231,11 +231,9 @@ public class GameView implements View
             
             Composite oldComp = g.getComposite();
             g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.7f));
-            if (board.get(matchLoc).getColor()) {
-            	g.setColor(Color.decode(level.getBlock1MatchColor()));
-            } else {
-            	g.setColor(Color.decode(level.getBlock2MatchColor()));
-            }
+        	g.setColor(Color.decode(level.getBlockMatchColor(
+        			board.get(matchLoc).getColor()
+        		)));
             g.fillRect( box.x, box.y, box.width, box.height );
             g.setComposite(oldComp);
             

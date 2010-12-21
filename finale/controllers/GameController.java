@@ -157,6 +157,14 @@ public class GameController implements Controller
     }
     
     /**
+     * Called from ChainDestroyerDestroyed event to increment score.
+     * @param size number of blocks cleared
+     */
+    public void chainDestroyerDestroyed(int size) {
+    	gameScore += 50 * size;
+    }
+    
+    /**
        Advances the TimeBar partially.
      */
     public void microadvanceTimeBar() {
