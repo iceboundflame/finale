@@ -34,9 +34,10 @@ import finale.views.ResourceManager;
 public class GameController implements Controller
 {
     /** The default location of a new ActiveSquare */
-    private static final Location DEFAULT_ACTIVESQUARE_LOC = new Location( 10, 9 );
+	private static final Location DEFAULT_ACTIVESQUARE_LOC = new Location(10, 9);
     /** The frequency of powerups appearing */
     private static double POWERUP_FREQUENCY = (1.0/36);
+    private static double CHAIN_DESTROYER_FREQUENCY = (1.0/36);
 
     private Board board;
     private GameView view;
@@ -70,22 +71,20 @@ public class GameController implements Controller
     /**
        Creates a new GameController.
      */
-    public GameController()
-    {
-        board = new Board( 12, 18 );
-        view = new GameView( this, board );
-        timeBar = new TimeBar( board );
-        square = new ActiveSquare( board, DEFAULT_ACTIVESQUARE_LOC );
-        for ( int i = 0; i < 3; i++ ) {
-            upcoming.add( new ActiveSquare( board, DEFAULT_ACTIVESQUARE_LOC ) );
-        }
-        level = Level.loadLevel(1);
-    }
+	public GameController() {
+		board = new Board(12, 18);
+		view = new GameView(this, board);
+		timeBar = new TimeBar(board);
+		square = new ActiveSquare(board, DEFAULT_ACTIVESQUARE_LOC);
+		for (int i = 0; i < 3; i++) {
+			upcoming.add(new ActiveSquare(board, DEFAULT_ACTIVESQUARE_LOC));
+		}
+		level = Level.loadLevel(1);
+	}
     
-    public void step()
-    {
-        if (gameOver)
-            return;
+	public void step() {
+		if (gameOver)
+			return;
 
         gameTime++;
 
@@ -161,7 +160,7 @@ public class GameController implements Controller
      * @param size number of blocks cleared
      */
     public void chainDestroyerDestroyed(int size) {
-    	gameScore += 50 * size;
+    	gameScore += 25 * size;
     }
     
     /**
@@ -179,9 +178,14 @@ public class GameController implements Controller
                 square.finish();
                 square = upcoming.remove();
                 int special = ActiveSquare.NORMAL;
-                if (Math.random() < POWERUP_FREQUENCY)
+                
+                double rand = Math.random();
+                if (rand < POWERUP_FREQUENCY)
                 	special = ActiveSquare.POWERUP;
-                upcoming.add( new ActiveSquare( board, DEFAULT_ACTIVESQUARE_LOC, special ) );
+                else if (rand < POWERUP_FREQUENCY+CHAIN_DESTROYER_FREQUENCY)
+                	special = ActiveSquare.CHAIN_DESTROYER;
+                
+                upcoming.add(new ActiveSquare(board, DEFAULT_ACTIVESQUARE_LOC, special));
                 squareLifeTime = 0;
                 keys.resetKey(KEY_DROP);
             }
@@ -353,12 +357,14 @@ public class GameController implements Controller
 				    view.animate(new HiScoreFireworks(view, this));
 				    break;
 				case KeyEvent.VK_X:
-					square = new ActiveSquare(board, DEFAULT_ACTIVESQUARE_LOC, ActiveSquare.POWERUP);
+					square = new ActiveSquare(
+							board, DEFAULT_ACTIVESQUARE_LOC, ActiveSquare.POWERUP);
 	                squareLifeTime = 0;
 					cheated = true;
 					break;
 				case KeyEvent.VK_Z:
-					square = new ActiveSquare(board, DEFAULT_ACTIVESQUARE_LOC, ActiveSquare.DESTROYER);
+					square = new ActiveSquare(
+							board, DEFAULT_ACTIVESQUARE_LOC, ActiveSquare.CHAIN_DESTROYER);
 	                squareLifeTime = 0;
 					cheated = true;
 					break;

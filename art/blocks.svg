@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -13,10 +14,10 @@
    height="1052.3622047"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.46"
+   inkscape:version="0.48.0 r9654"
    sodipodi:docname="blocks.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   sodipodi:docbase="C:\Users\Yuzhi\Comp SCI AP\workspace\finale">
+   version="1.1">
   <defs
      id="defs4">
     <linearGradient
@@ -1029,15 +1030,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="459.40672"
-     inkscape:cy="-928.25037"
+     inkscape:cx="269.00664"
+     inkscape:cy="-988.89562"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1047"
      inkscape:window-height="714"
      inkscape:window-x="86"
-     inkscape:window-y="21" />
+     inkscape:window-y="21"
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -1046,6 +1048,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
       <cc:Work
          rdf:about="">
@@ -1082,7 +1085,10 @@
          x="-41"
          y="441.36218"
          ry="50"
-         rx="50" />
+         rx="50"
+         inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\level1\block2.png"
+         inkscape:export-xdpi="13.949998"
+         inkscape:export-ydpi="13.949998" />
       <path
          sodipodi:type="inkscape:offset"
          inkscape:radius="-7.1428571"
@@ -1094,9 +1100,9 @@
     </g>
     <g
        id="g2216"
-       inkscape:export-filename="C:\Users\Yuzhi\Comp SCI AP\workspace\finale\sprites\ora.png"
-       inkscape:export-xdpi="22.277227"
-       inkscape:export-ydpi="22.277227"
+       inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\level1\block1.png"
+       inkscape:export-xdpi="12.281562"
+       inkscape:export-ydpi="12.281562"
        transform="translate(34.269119,-57.553973)">
       <rect
          style="opacity:0.64903846;fill:#000000;fill-opacity:1;filter:url(#filter3248)"
@@ -1115,9 +1121,9 @@
          width="200"
          id="rect2220"
          style="opacity:1;fill:url(#radialGradient2224);fill-opacity:1"
-         inkscape:export-xdpi="22.5"
-         inkscape:export-ydpi="22.5"
-         inkscape:export-filename="C:\Users\Yuzhi\Comp SCI AP\workspace\finale\sprites\ora.png"
+         inkscape:export-xdpi="13.95"
+         inkscape:export-ydpi="13.95"
+         inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\level1\block1.png"
          rx="50" />
       <path
          d="M 240,113.8125 C 216.13359,113.8125 197.15625,132.78984 197.15625,156.65625 L 197.15625,191.46875 C 236.50838,174.53114 301.72662,159.5623 382.84375,188.8125 L 382.84375,156.65625 C 382.84375,132.78984 363.86641,113.8125 340,113.8125 L 240,113.8125 z"
@@ -1274,9 +1280,9 @@
        inkscape:export-ydpi="22.5" />
     <rect
        rx="3.3309524"
-       inkscape:export-filename="C:\Users\Yuzhi\Comp SCI AP\workspace\finale\finale\resources\graphics\level2\block1.png"
-       inkscape:export-ydpi="22.5"
-       inkscape:export-xdpi="22.5"
+       inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\level2\block1.png"
+       inkscape:export-ydpi="13.95"
+       inkscape:export-xdpi="13.95"
        style="fill:url(#radialGradient3738);fill-opacity:1"
        id="rect2788"
        width="200"
@@ -1307,9 +1313,9 @@
        style="opacity:0.64903846;fill:#000000;fill-opacity:1;filter:url(#filter3248)" />
     <rect
        rx="3.3309524"
-       inkscape:export-filename="C:\Users\Yuzhi\Comp SCI AP\workspace\finale\finale\resources\graphics\level2\block2.png"
-       inkscape:export-ydpi="22.5"
-       inkscape:export-xdpi="22.5"
+       inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\level2\block2.png"
+       inkscape:export-ydpi="13.95"
+       inkscape:export-xdpi="13.95"
        style="fill:url(#radialGradient3731);fill-opacity:1.0"
        id="rect3603"
        width="200"
@@ -1364,9 +1370,9 @@
        inkscape:export-ydpi="22.5" />
     <rect
        rx="50"
-       inkscape:export-filename="C:\Users\Yuzhi\Comp SCI AP\workspace\finale\finale\resources\graphics\level3\block1.png"
-       inkscape:export-ydpi="22.5"
-       inkscape:export-xdpi="22.5"
+       inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\level3\block1.png"
+       inkscape:export-ydpi="13.95"
+       inkscape:export-xdpi="13.95"
        style="fill:url(#radialGradient3670);fill-opacity:1"
        id="rect3640"
        width="200"
@@ -1441,9 +1447,9 @@
          width="200"
          id="rect3733"
          style="fill:#000000;fill-opacity:0.95294118"
-         inkscape:export-xdpi="22.5"
-         inkscape:export-ydpi="22.5"
-         inkscape:export-filename="C:\Users\Yuzhi\Comp SCI AP\workspace\finale\sprites\ora.png"
+         inkscape:export-xdpi="13.95"
+         inkscape:export-ydpi="13.95"
+         inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\level3\block2.png"
          rx="50" />
       <path
          d="M 274.96875,353.1875 C 252.60453,353.1875 234.90625,370.88578 234.90625,393.25 L 234.90625,432.40625 C 257.51401,427.07065 288.04089,422.625 328.8125,422.625 C 365.01078,422.625 393.2029,426.21661 415.03125,430.78125 L 415.03125,393.25 C 415.03125,370.88578 397.33297,353.1875 374.96875,353.1875 L 274.96875,353.1875 z"
@@ -1500,9 +1506,9 @@
        inkscape:export-ydpi="22.5" />
     <rect
        rx="3.3309524"
-       inkscape:export-filename="C:\Users\Yuzhi\Comp SCI AP\workspace\finale\finale\resources\graphics\level4\block1.png"
-       inkscape:export-ydpi="22.5"
-       inkscape:export-xdpi="22.5"
+       inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\level4\block1.png"
+       inkscape:export-ydpi="13.95"
+       inkscape:export-xdpi="13.95"
        style="fill:url(#radialGradient3749);fill-opacity:1"
        id="rect3743"
        width="200"
@@ -1605,9 +1611,9 @@
        inkscape:export-ydpi="22.5" />
     <rect
        rx="3.3309524"
-       inkscape:export-filename="C:\Users\Yuzhi\Comp SCI AP\workspace\finale\finale\resources\graphics\level4\block2.png"
-       inkscape:export-ydpi="22.5"
-       inkscape:export-xdpi="22.5"
+       inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\level4\block2.png"
+       inkscape:export-ydpi="13.95"
+       inkscape:export-xdpi="13.95"
        style="fill:url(#radialGradient3825);fill-opacity:1"
        id="rect3813"
        width="200"

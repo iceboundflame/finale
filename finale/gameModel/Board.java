@@ -34,15 +34,13 @@ public class Board
      * @param rows : The number of rows for the Board
      * @param cols : The number of columns for the Board
      */
-    public Board( int rows, int cols )
-    {
-        this.rows = rows;
-        this.cols = cols;
-        board = new Block[rows][cols];
-        matches = new TreeSet<Location>();
-        singleMatches = new TreeSet<Location>();
-//        generateRandomTest();
-    }
+	public Board(int rows, int cols) {
+		this.rows = rows;
+		this.cols = cols;
+		board = new Block[rows][cols];
+		matches = new TreeSet<Location>();
+		singleMatches = new TreeSet<Location>();
+	}
     
     /**
      * Creates many random blocks on the top quarter of the field

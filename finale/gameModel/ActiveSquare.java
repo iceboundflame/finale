@@ -24,7 +24,7 @@ public class ActiveSquare
     
     public static final int NORMAL = 0;
     public static final int POWERUP = 1;
-    public static final int DESTROYER = 2;
+    public static final int CHAIN_DESTROYER = 2;
 
     /**
      * Creates a new ActiveSquare with the given parameters.
@@ -43,7 +43,7 @@ public class ActiveSquare
         	boolean blockColor = ((color & 0x1) == 1);
         	if (i == 0 && special == POWERUP)
         		blk = new PowerUpContainerBlock(PowerUp.createRandomPowerUp(), new Location(0,0), blockColor);
-        	else if (i == 0 && special == DESTROYER)
+        	else if (i == 0 && special == CHAIN_DESTROYER)
         		blk = new ChainDestroyerBlock(new Location(0,0), blockColor);
         	else
         		blk = new Block(new Location(0,0), blockColor);

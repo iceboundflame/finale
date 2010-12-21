@@ -163,25 +163,34 @@ public class GameView implements View
     	Graphics2D g, Rectangle field, Block blk,
     	Location loc, boolean ignoreHide) {
     	
+//    	System.err.println(""+sqWidth + "x"+sqHeight);
         if (blk != null) {
         	if (!ignoreHide && isHidden(loc)) return;
         	
             Rectangle rect = gridToScreen(loc, field);
             g.drawImage(getBlockImage(blk.getColor()), rect.x, rect.y, rect.width, rect.height, null);
+            
+			Rectangle emblemBounds = new Rectangle(
+				rect.x + rect.width/2 - (sqWidth*2/3)/2,
+				rect.y + rect.height/2 - (sqHeight*2/3)/2,
+				(int)Math.ceil(sqWidth*2.0/3),
+				(int)Math.ceil(sqHeight*2.0/3)
+			);
+			BufferedImage emblem = null;
             if (blk instanceof PowerUpContainerBlock) {
             	PowerUp power = ((PowerUpContainerBlock)blk).getPowerUp();
-            	BufferedImage powerImg = ResourceManager.getInstance().get(
+            	emblem = ResourceManager.getInstance().get(
             			"power_"+power.getShortName()+".png",
-            			rect.width-6, rect.height-6
+            			emblemBounds.width, emblemBounds.height
             	);
-            	g.drawImage(powerImg, rect.x+3, rect.y+3, null);
             } else if (blk instanceof ChainDestroyerBlock) {
-            	BufferedImage powerImg = ResourceManager.getInstance().get(
-            			"power_destroyer"+".png",
-            			rect.width-6, rect.height-6
+            	emblem = ResourceManager.getInstance().get(
+            			"chain_destroyer.png",
+            			emblemBounds.width, emblemBounds.height
             	);
-            	g.drawImage(powerImg, rect.x+3, rect.y+3, null);
             }
+            if (emblem != null)
+            	g.drawImage(emblem, emblemBounds.x, emblemBounds.y, null);
         }
     }
     private void drawSingleBlock(Graphics2D g, Rectangle field, Block blk) {
@@ -314,6 +323,16 @@ public class GameView implements View
         DrawUtil.drawMultilineString(g, statsX+1, statsY+1, scoreStr);
         g.setColor(Color.WHITE);
         DrawUtil.drawMultilineString(g, statsX, statsY, scoreStr);
+
+        if (ctl.getCheated()) {
+	        int cheatedX = sqWidth*1;
+	        int cheatedY = sqHeight*5/2;
+	        String cheatStr = "Cheat\n used!";
+	        g.setColor(Color.BLACK);
+	        DrawUtil.drawMultilineString(g, cheatedX+1, cheatedY+1, cheatStr);
+	        g.setColor(Color.RED);
+	        DrawUtil.drawMultilineString(g, cheatedX, cheatedY, cheatStr);
+        }
 
 //        g.drawString(""+points,
 //        		statsX, statsY);
