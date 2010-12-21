@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import finale.events.BlockMoved;
-import finale.gameModel.powerUps.DestroyerBlock;
 import finale.gameModel.powerUps.PowerUp;
 import finale.gameModel.powerUps.PowerUpContainerBlock;
 
@@ -45,7 +44,7 @@ public class ActiveSquare
         	if (i == 0 && special == POWERUP)
         		blk = new PowerUpContainerBlock(PowerUp.createRandomPowerUp(), new Location(0,0), blockColor);
         	else if (i == 0 && special == DESTROYER)
-        		blk = new DestroyerBlock(new Location(0,0), blockColor);
+        		blk = new ChainDestroyerBlock(new Location(0,0), blockColor);
         	else
         		blk = new Block(new Location(0,0), blockColor);
         	blocks.add(blk);	// block's location will get updated later

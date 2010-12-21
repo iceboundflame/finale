@@ -59,9 +59,7 @@ public class ResourceManager {
 						System.out.println("Loading image "+filename);
 						
 						ClassLoader cl = getClass().getClassLoader();
-						InputStream strm = cl.getResourceAsStream(filename+".jpg");
-						if (strm == null)
-							strm = cl.getResourceAsStream(filename+".png");
+						InputStream strm = cl.getResourceAsStream(filename);
 
 //						try {
 //							Thread.sleep(1000); // simulate loading

@@ -23,9 +23,9 @@ public class InstructionsView implements View {
     }
     
     public void draw(Graphics2D g, Rectangle b) {
-//    	g.drawImage(imgs.get("instructionsBG.png", b.width, b.height),
-//    			b.x, b.y, null);
-    	g.drawImage(imgs.get("instructions"+ctl.getPageNumber(), b.width, b.height),
-    			b.x, b.y, null);
+    	g.drawImage(
+    		imgs.get("instructions"+ctl.getPageNumber()+".jpg",
+    				b.width, b.height),
+    		b.x, b.y, null);
     }
 }

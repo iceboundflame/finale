@@ -23,10 +23,10 @@ import finale.controllers.GameController;
 import finale.gameModel.ActiveSquare;
 import finale.gameModel.Block;
 import finale.gameModel.Board;
+import finale.gameModel.ChainDestroyerBlock;
 import finale.gameModel.Level;
 import finale.gameModel.Location;
 import finale.gameModel.TimeBar;
-import finale.gameModel.powerUps.DestroyerBlock;
 import finale.gameModel.powerUps.PowerUp;
 import finale.gameModel.powerUps.PowerUpContainerBlock;
 
@@ -51,15 +51,13 @@ public class GameView implements View
     private int sqWidth, sqHeight;
     
     private ResourceManager imgs = ResourceManager.getInstance();
-    private static final String IMG_BG = "bg";
-    private static final String IMG_TIMEBAR = "timebar";
-    private static final String IMG_BLOCK1 = "block1";
-    private static final String IMG_BLOCK2 = "block2";
+    private static final String IMG_BG = "bg.jpg";
+    private static final String IMG_TIMEBAR = "timebar.png";
+    private static final String IMG_BLOCK1 = "block1.png";
+    private static final String IMG_BLOCK2 = "block2.png";
     private Level level;
 
 	private Set<Location> hide = new TreeSet<Location>();
-    
-//    private MP3 bg = new MP3("finale/resources/sounds/bg.mp3");
     
     public GameView(GameController ctl, Board board) {
         this.ctl = ctl;
@@ -83,7 +81,7 @@ public class GameView implements View
     	return hide.contains(loc);
     }
     
-    private Rectangle calculateDimensions(Rectangle b) {
+    private Rectangle roundDimensions(Rectangle b) {
     	int widthInSquares = (board.getCols() + 6);
     	int heightInSquares = (board.getRows() + 2);
     	
@@ -107,48 +105,30 @@ public class GameView implements View
     public void draw( Graphics2D g, Rectangle b )
     {
     	level = ctl.getLevel();
+        b = roundDimensions(b);
     	
     	g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-
     	g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-    	
-//    	g.setColor( Color.BLACK );
-//    	g.fill( b );
-//    	// FIXME: HACK: hardcoded size
-//    	b.width = 806;
-//    	b.height = 434;
-    	
-        b = calculateDimensions(b);
+    	g.setFont(font);
         
-//        g.drawImage(bgImg, 0,0, b.width, b.height, null);
-//        g.drawImage(bgImg, b.x, b.y, b.width, b.height, null);
-        g.drawImage(imgs.get(level.getThemeBase()+IMG_BG, b.width, b.height), b.x, b.y, null);
-        
-        g.setFont(font);
-
         Rectangle field = new Rectangle(
             b.x + 4 * sqWidth,
             b.y + 2 * sqHeight,
             b.width - 6 * sqWidth,
             b.height - 2 * sqHeight
         );
-        
-//        g.setColor( Color.BLACK );
-//        g.fill( field );
 
         loadBlocksHiddenByAnimation();
         
+        // draw background
+        g.drawImage(imgs.get(level.getThemeBase()+IMG_BG, b.width, b.height), b.x, b.y, null);
+        
         drawBlocks(g, field);
-        
         drawActiveSquare(g, field);
-        
         drawMatches(g, field);
         drawSingleMatches(g, field);
-        
         drawTimeBar(g, field);
-        
         drawUpcoming(g, b);
-        
         drawScore(g, b);
         
         while (!newanimations.isEmpty()) {
@@ -191,13 +171,13 @@ public class GameView implements View
             if (blk instanceof PowerUpContainerBlock) {
             	PowerUp power = ((PowerUpContainerBlock)blk).getPowerUp();
             	BufferedImage powerImg = ResourceManager.getInstance().get(
-            			"power_"+power.getShortName(),
+            			"power_"+power.getShortName()+".png",
             			rect.width-6, rect.height-6
             	);
             	g.drawImage(powerImg, rect.x+3, rect.y+3, null);
-            } else if (blk instanceof DestroyerBlock) {
+            } else if (blk instanceof ChainDestroyerBlock) {
             	BufferedImage powerImg = ResourceManager.getInstance().get(
-            			"power_destroyer",
+            			"power_destroyer"+".png",
             			rect.width-6, rect.height-6
             	);
             	g.drawImage(powerImg, rect.x+3, rect.y+3, null);

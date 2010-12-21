@@ -1,25 +1,22 @@
-package finale.gameModel.powerUps;
+package finale.gameModel;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
 
-import finale.gameModel.Block;
-import finale.gameModel.Board;
-import finale.gameModel.Location;
 /**
     A Block that destroys neighboring blocks.
     
     @author Team FINALE
 */
-public class DestroyerBlock extends Block {
+public class ChainDestroyerBlock extends Block {
     /**
        @param board : the Board
        @param loc : the Location of the PowerUp
        @param color : true = color for block1  false = color for block2 
      */
-    public DestroyerBlock(Board board, Location loc, boolean color) {
+    public ChainDestroyerBlock(Board board, Location loc, boolean color) {
     	super(board, loc, color);
     	System.out.println("NewDestroyer");
     }
@@ -27,20 +24,20 @@ public class DestroyerBlock extends Block {
        @param board : the board of the game
        @param loc : the location of the power up
      */
-    public DestroyerBlock(Board board, Location loc) {
+    public ChainDestroyerBlock(Board board, Location loc) {
         this(board, loc, (Math.random() < 0.5));//randomly picked color
     }
     /**
        @param loc : the location of the power up
        @param color : true = color for block1  false = color for block2 
      */
-    public DestroyerBlock(Location loc, boolean color) {
+    public ChainDestroyerBlock(Location loc, boolean color) {
         this(null, loc, color);
     }
     /**
        @param loc : the location of the power up
      */
-    public DestroyerBlock(Location loc) {
+    public ChainDestroyerBlock(Location loc) {
         this(loc, (Math.random() < 0.5));
     }
 

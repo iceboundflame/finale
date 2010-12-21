@@ -26,7 +26,6 @@ public class MenuView implements View {
     private Font font;
     private static float defaultFontSize = 24f;
     private int time = 0;
-    private List<Animation> animations = new LinkedList<Animation>();
     
     /**
      * @param ctl : The MenuController for this MenuView
@@ -34,16 +33,7 @@ public class MenuView implements View {
     public MenuView(MenuController ctl) {
         this.ctl = ctl;
 
-        try {
-        	InputStream is = getClass().getClassLoader().getResourceAsStream(
-				"finale/resources/fonts/FeaturedItem.ttf");
-            font = Font.createFont(Font.TRUETYPE_FONT, is)
-            			.deriveFont(defaultFontSize);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (FontFormatException e) {
-            e.printStackTrace();
-        }
+        font = imgs.getFont("FeaturedItem.ttf").deriveFont(defaultFontSize);
     }
     
     public void draw(Graphics2D g, Rectangle b) {
@@ -52,7 +42,7 @@ public class MenuView implements View {
     	g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         time++;
-    	g.drawImage(imgs.get("menu", b.width, b.height), b.x, b.y, null);
+    	g.drawImage(imgs.get("menu.jpg", b.width, b.height), b.x, b.y, null);
         String[] items = ctl.getItems();
         int sel = ctl.getSelectionIndex();
         g.setFont(font);
