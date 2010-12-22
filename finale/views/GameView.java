@@ -310,7 +310,7 @@ public class GameView implements View
     private void drawScore(Graphics2D g, Rectangle b) {
         g.setFont(font);
         int points = ctl.getScore();
-        int gameSeconds = ctl.getGameTime()/30;
+        int gameSeconds = ctl.getGameTime();
 //        int ptsPerMinute = 0;
 //        if (gameSeconds > 0)
 //            ptsPerMinute = points * 60 / gameSeconds;

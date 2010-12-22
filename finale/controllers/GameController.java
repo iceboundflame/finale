@@ -8,6 +8,7 @@ import java.util.Queue;
 
 import finale.Controller;
 import finale.ControllerChangeListener;
+import finale.FinalePanel;
 import finale.animation.FadeToWhiteThemeChange;
 import finale.animation.HiScoreFireworks;
 import finale.events.BlockDestroyed;
@@ -389,14 +390,8 @@ public class GameController implements Controller
     	changeListener.transferControl(new GameOverController(this));
     }
     
-    /**
-     * Returns the current game time, in frames.
-     * 
-     * @return the current game time, in frames
-     */
-    public int getGameTime()
-    {
-        return gameTime;
+    public int getGameTime() {
+        return gameTime / FinalePanel.FRAME_RATE;
     }
     
     /**

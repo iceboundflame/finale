@@ -14,21 +14,17 @@ import javax.swing.JFrame;
    @author FINALE
  */
 public class FinaleApp extends JFrame implements WindowListener {
-    
-    /** The default frames per second for this game to run at */
-    private static int DEFAULT_FPS = 30;
-
     private FinalePanel panel; // where the game is drawn
 
     /**
      * Creates a new FinaleApp with the specified period
        @param period the period between drawing, in nanoseconds
      */
-    public FinaleApp(long period) {
+    public FinaleApp() {
         super("[ FINALE ] [by Team FINALE - David Liu, Brandon Liu, Yuzhi Zheng]");
 
         Container c = getContentPane(); // default BorderLayout used
-        panel = new FinalePanel(period);
+        panel = new FinalePanel();
         c.add(panel, "Center");
 
         addWindowListener(this);
@@ -68,8 +64,6 @@ public class FinaleApp extends JFrame implements WindowListener {
     // ----------------------------------------------------
 
     public static void main(String args[]) {
-        long period = (long) 1000.0 / DEFAULT_FPS;
-        new FinaleApp(period * 1000000L); // ms --> nanosecs
+        new FinaleApp();
     }
-
 }

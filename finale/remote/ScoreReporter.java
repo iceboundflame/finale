@@ -25,13 +25,14 @@ public class ScoreReporter {
 		}
 	}
 	
-	public ScoreResult submitScore(int score, int level) {
+	public ScoreResult submitScore(int score, int level, int playTime) {
 		if (submitURL == null)
 			return null;
 		try {
 			Map<String, String> params = new TreeMap<String,String>();
 			String record = String.valueOf(score) + " "
-				+ String.valueOf(level);
+				+ String.valueOf(level) + " "
+				+ String.valueOf(playTime);
 			params.put("score", record);
 			params.put("vkey", generateScoreVerification(record));
 			params.put("tok", tok);

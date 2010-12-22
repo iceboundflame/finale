@@ -52,12 +52,13 @@ public class GameOverController implements Controller {
 		score = gameCtl.getScore();
 		level = gameCtl.getLevelNum();
 		cheated = gameCtl.getCheated();
+		final int playTime = gameCtl.getGameTime();
 		if (!cheated) {
 			final ScoreReporter report = new ScoreReporter();
 			
 			new Thread(new Runnable() {
 				public void run() {
-					scoreResult = report.submitScore(score, level);
+					scoreResult = report.submitScore(score, level, playTime);
 					report.refreshPageScores();
 //					report.postToFacebook(scoreResult);
 					

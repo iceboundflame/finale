@@ -7,8 +7,6 @@ import javax.swing.JApplet;
 public class FinaleApplet extends JApplet {
 	private static final long serialVersionUID = 5586376760233578236L;
 
-	private static int DEFAULT_FPS = 30;
-
     private FinalePanel panel; // where the game is drawn
     
     private static FinaleApplet instance = null;
@@ -23,7 +21,7 @@ public class FinaleApplet extends JApplet {
     
 	public void init() {
         Container c = getContentPane(); // default BorderLayout used
-        panel = new FinalePanel((long)(1e9/DEFAULT_FPS));
+        panel = new FinalePanel();
         c.add(panel, "Center");
 	}
 }

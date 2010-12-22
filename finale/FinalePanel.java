@@ -39,6 +39,7 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
     private volatile boolean running = false;
     private volatile boolean isPaused = false;
 
+    public static final int FRAME_RATE = 30;
     private long period; // period between drawing in _nanosecs_
 
     // off-screen rendering
@@ -57,8 +58,8 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
     /**
        @param period the period of time between drawing, in nanoseconds
      */
-    public FinalePanel(long period) {
-        this.period = period;
+    public FinalePanel() {
+        period = (long)1e9/FRAME_RATE; // nanoseconds per frame
 
         setDoubleBuffered(false); // we have DIY double-buffering
         setBackground(Color.BLACK);
