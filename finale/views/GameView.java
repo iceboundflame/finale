@@ -92,6 +92,8 @@ public class GameView implements View
 			b.height - b.height % heightInSquares
 		);
     	
+//    	System.out.println("div: "+widthInSquares+"x"+heightInSquares);
+//    	System.out.println("wh:"+b.width+"x"+b.height+" rem:"+b.width % widthInSquares+","+b.height % heightInSquares);
         int newSqW = b.width / widthInSquares;
         int newSqH = b.height / heightInSquares;
         if (newSqW == 0) newSqW = 1;

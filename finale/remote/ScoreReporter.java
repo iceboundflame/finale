@@ -1,6 +1,7 @@
 package finale.remote;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -19,7 +20,7 @@ public class ScoreReporter {
 	public ScoreReporter() {
 		applet = FinaleApplet.getInstance();
 		if (applet != null) {
-			submitURL = applet.getParameter("submitURL");
+			submitURL = applet.getParameter("submiturl");
 			tok = applet.getParameter("tok");
 		}
 	}
@@ -56,9 +57,7 @@ public class ScoreReporter {
 			rd.close();
 			
 			return x;
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -74,19 +73,12 @@ public class ScoreReporter {
     public String generateScoreVerification(String record) {
         try {
             String key = "Welcome to FINALE!";
-            
 	        String message = record + key;
-	        MessageDigest digester = MessageDigest.getInstance("SHA-512");
-	        digester.reset();
-	        digester.update(message.getBytes());
-	        byte messageDigest[] = digester.digest();
 	        
-	    	StringBuffer hexString = new StringBuffer();
-	    	for (int i = 0; i < messageDigest.length; i++) {
-	    		hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
-	    	}
-	
-	    	return hexString.toString();
+	        byte[] hash = MessageDigest.getInstance("SHA-512")
+	        							.digest(message.getBytes());
+	        BigInteger bi = new BigInteger(1, hash);
+	        return String.format("%0" + (hash.length << 1) + "x", bi);
         } catch (Exception e) {
         	e.printStackTrace();
         	return null;

@@ -43,9 +43,9 @@ public class GameOverController implements Controller {
 	public GameOverController(GameController gameCtl) {
 		this.gameCtl = gameCtl;
 		
-		FinaleApplet applet = FinaleApplet.getInstance();
-		if (applet != null)
-			playerName = applet.getParameter("playername");
+		try {
+			playerName = FinaleApplet.getInstance().getParameter("playername");
+		} catch (NullPointerException e) {}
 		if (playerName == null) playerName = "you";
 		
 		view = new GameOverView(this, gameCtl.getView());

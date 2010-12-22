@@ -29,7 +29,7 @@ import finale.utils.FilteredKeyListener;
 public class FinalePanel extends JPanel implements Runnable, ControllerChangeListener {
 	// Maximum number of frames that can be rendered without sleeping
 	// before a forced yield
-    private static final int NO_DELAYS_PER_YIELD = 16;
+    private static final int MAX_FRAMES_WITHOUT_SLEEPING = 4;
 
     // Number of renders that can be skipped in any one animation loop
     // i.e max number of game updates that can run per render
@@ -48,7 +48,7 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
     private Controller c;
     
     // [dcl] Variables for tracking statistics 
-    private int framesInLastSecond = 0, updatesInLastSecond = 0;
+    private int rendersInLastSecond = 0, updatesInLastSecond = 0;
     private long totalSleepInLastSecond = 0;
     private long statsStartTime = 0;
     
@@ -128,7 +128,7 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
     public void run() {
         long beforeTime, afterTime, timeDiff, sleepTime;
         long overSleepTime = 0L;
-        int noDelays = 0;
+        int framesRenderedWithoutSleeping = 0;
         long excess = 0L;
 
         beforeTime = statsStartTime = System.nanoTime();
@@ -151,13 +151,14 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
                     e.printStackTrace();
                 }
                 overSleepTime = (System.nanoTime() - afterTime) - sleepTime;
+                framesRenderedWithoutSleeping = 0;
             } else { // sleepTime <= 0; the frame took longer than the period
                 excess -= sleepTime; // store excess time value
                 overSleepTime = 0L;
 
-                if (++noDelays >= NO_DELAYS_PER_YIELD) {
+                if (++framesRenderedWithoutSleeping >= MAX_FRAMES_WITHOUT_SLEEPING) {
                     Thread.yield(); // give another thread a chance to run
-                    noDelays = 0;
+                    framesRenderedWithoutSleeping = 0;
                 }
             }
 
@@ -181,19 +182,19 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
                 totalSleepInLastSecond += sleepTime;
             long statsElapsed = System.nanoTime() - statsStartTime;
             if (statsElapsed > 1000000000) {    // show stats every second
-                float fps = (float)framesInLastSecond * 1000000000/statsElapsed;
+                float fps = (float)rendersInLastSecond * 1000000000/statsElapsed;
                 float sleepPercent = (float)totalSleepInLastSecond / statsElapsed;
                 float load = 100 * (1 - sleepPercent);
-                int drops = updatesInLastSecond-framesInLastSecond;
+                int drops = updatesInLastSecond-rendersInLastSecond;
                 
                 System.out.print("Load: "+load+"%");
-                System.out.print(" [ FPS: "+fps+" FrameDrops:"+drops+" Frames:"+framesInLastSecond+" ]\n");
+                System.out.print(" [ FPS: "+fps+" FrameDrops:"+drops+" Frames:"+rendersInLastSecond+" ]\n");
 
                 float locPerSec = (float)Location.creations * 1000000000/statsElapsed;
                 System.out.println("  Location instantiations: "+locPerSec+"/sec");
                 Location.creations = 0;
                 
-                framesInLastSecond = updatesInLastSecond = 0;
+                rendersInLastSecond = updatesInLastSecond = 0;
                 totalSleepInLastSecond = 0;
                 statsStartTime = System.nanoTime();
             }
@@ -216,8 +217,25 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
 
     private Dimension lastSize = null;
     private void gameRender() {
-        Dimension size = this.getSize();
-        Rectangle b = new Rectangle(0,0, (int)size.getWidth(), (int)size.getHeight());
+    	// simulate slow render.
+//    	try {
+//			Thread.sleep(50);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+    	
+    	Dimension size;
+    	try {
+    		FinaleApplet applet = FinaleApplet.getInstance();
+	    	size = new Dimension(
+	    		Integer.parseInt(applet.getParameter("fixedwidth")),
+	    		Integer.parseInt(applet.getParameter("fixedheight"))
+	    	);
+    	} catch (Exception e) {
+    		size = this.getSize();
+    	}
+    	Rectangle b = new Rectangle(size);
         if (dbImage == null || !lastSize.equals(size)) {
             lastSize = size;
             if (size.width == 0 || size.height == 0)
@@ -231,7 +249,7 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
         }
         c.getView().draw((Graphics2D)dbg, b);
         
-        framesInLastSecond++;
+        rendersInLastSecond++;
     }
 
     // use active rendering to put the buffered image on-screen
