@@ -26,7 +26,7 @@ public class FilteredKeyListener implements KeyListener, ActionListener {
 			return;
 		
 		if (set.remove(e.getKeyCode())) {
-			KeyReleased(e);
+			filteredKeyReleased(e);
 		}
 		releaseEvent = null;
 	}
@@ -35,13 +35,13 @@ public class FilteredKeyListener implements KeyListener, ActionListener {
 		timer = new Timer(0, this);
 	}
 
-	public void KeyPressed(KeyEvent e) {
+	public void filteredKeyPressed(KeyEvent e) {
 	}
 
-	public void KeyReleased(KeyEvent e) {
+	public void filteredKeyReleased(KeyEvent e) {
 	}
 
-	public void KeyTyped(KeyEvent e) {
+	public void filteredKeyTyped(KeyEvent e) {
 	}
 
 	public int getPressedCount() {
@@ -65,7 +65,7 @@ public class FilteredKeyListener implements KeyListener, ActionListener {
 		}
 		
 		if (set.add(e.getKeyCode())) {
-			KeyPressed(e);
+			filteredKeyPressed(e);
 		}
 	}
 
@@ -83,7 +83,7 @@ public class FilteredKeyListener implements KeyListener, ActionListener {
 	}
 
 	public void keyTyped(KeyEvent e) {
-		KeyTyped(e);
+		filteredKeyTyped(e);
 	}
 
 	public void actionPerformed(ActionEvent e) {

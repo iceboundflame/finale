@@ -60,7 +60,6 @@ public class GameOverController implements Controller {
 				public void run() {
 					scoreResult = report.submitScore(score, level, playTime);
 					report.refreshPageScores();
-//					report.postToFacebook(scoreResult);
 					
 					isDoneSubmitting = true;
 				}
@@ -128,6 +127,9 @@ public class GameOverController implements Controller {
 	            case KeyEvent.VK_SPACE:
 	            	if (selection == 0) // Submit
 	            		new ScoreReporter().postToFacebook(scoreResult);
+	            	
+	            	FinaleApplet applet = FinaleApplet.getInstance();
+	            	if (applet != null) applet.stopTheWorld();
 	            	
 	            	changeListener.transferControl(new MenuController());
 	                break;

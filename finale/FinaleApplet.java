@@ -24,4 +24,15 @@ public class FinaleApplet extends JApplet {
         panel = new FinalePanel();
         c.add(panel, "Center");
 	}
+	
+	public void stopTheWorld() { // or just the game
+		if (panel != null)
+			panel.pauseGame();
+	}
+	public void goOn() {
+		if (panel != null) {
+			panel.resumeGame();
+			panel.requestFocus();
+		}
+	}
 }

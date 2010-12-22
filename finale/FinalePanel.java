@@ -7,7 +7,12 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -16,6 +21,7 @@ import javax.swing.JPanel;
 import finale.controllers.MenuController;
 import finale.gameModel.Location;
 import finale.utils.FilteredKeyListener;
+import finale.views.AppletPausedOverlay;
 
 /**
    The FinalePanel runs the loop, updating the game state and drawing the screen.
@@ -43,7 +49,7 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
     private long period; // period between drawing in _nanosecs_
 
     // off-screen rendering
-    private Graphics dbg;
+    private Graphics2D dbg;
     private Image dbImage = null;
     
     private Controller c;
@@ -69,15 +75,32 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
         setFocusable(true);
         requestFocus(); // the JPanel now has focus, so receives key events
 
+        addMouseListener(new MouseAdapter() {
+        	public void mousePressed(MouseEvent e) {
+            	FinaleApplet applet = FinaleApplet.getInstance();
+            	if (applet != null) applet.goOn();
+    			requestFocus();
+        	}
+		});
+        
+    	addFocusListener(new FocusListener() {
+			public void focusLost(FocusEvent e) {
+				pauseGame();
+			}
+			public void focusGained(FocusEvent e) {
+				resumeGame();
+			}
+		});
+    	
         addKeyListener(new FilteredKeyListener() {
-            public void KeyPressed(KeyEvent e) {
-                keyEventQueue.add(e);
+            public void filteredKeyPressed(KeyEvent e) {
+                if (!isPaused) keyEventQueue.add(e);
             }
-            public void KeyReleased(KeyEvent e) {
-            	keyEventQueue.add(e);
+            public void filteredKeyReleased(KeyEvent e) {
+            	if (!isPaused) keyEventQueue.add(e);
             }
-            public void KeyTyped(KeyEvent e) {
-            	keyEventQueue.add(e);
+            public void filteredKeyTyped(KeyEvent e) {
+            	if (!isPaused) keyEventQueue.add(e);
             }
         });
         
@@ -154,7 +177,7 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
                 overSleepTime = (System.nanoTime() - afterTime) - sleepTime;
                 framesRenderedWithoutSleeping = 0;
             } else { // sleepTime <= 0; the frame took longer than the period
-                excess -= sleepTime; // store excess time value
+                excess += -sleepTime; // store excess time value
                 overSleepTime = 0L;
 
                 if (++framesRenderedWithoutSleeping >= MAX_FRAMES_WITHOUT_SLEEPING) {
@@ -165,6 +188,12 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
 
             beforeTime = System.nanoTime();
 
+            // cap accumulated excess time, so that if the program
+            // momentarily stops running (e.g. computer goes to sleep),
+            // we don't overcompensate
+            if (excess > period * MAX_FRAME_SKIPS)
+            	excess = period * MAX_FRAME_SKIPS;
+            
             /*
              * If frame animation is taking too long, update the game state
              * without rendering it, to get the updates/sec nearer to the
@@ -191,8 +220,8 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
                 System.out.print("Load: "+load+"%");
                 System.out.print(" [ FPS: "+fps+" FrameDrops:"+drops+" Frames:"+rendersInLastSecond+" ]\n");
 
-                float locPerSec = (float)Location.creations * 1000000000/statsElapsed;
-                System.out.println("  Location instantiations: "+locPerSec+"/sec");
+//                float locPerSec = (float)Location.creations * 1000000000/statsElapsed;
+//                System.out.println("  Location instantiations: "+locPerSec+"/sec");
                 Location.creations = 0;
                 
                 rendersInLastSecond = updatesInLastSecond = 0;
@@ -246,9 +275,13 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
                 System.out.println("dbImage is null");
                 return;
             } else
-                dbg = dbImage.getGraphics();
+                dbg = (Graphics2D)dbImage.getGraphics();
         }
-        c.getView().draw((Graphics2D)dbg, b);
+        c.getView().draw(dbg, b);
+        
+        if (isPaused) {
+        	AppletPausedOverlay.draw(dbg, b);
+        }
         
         rendersInLastSecond++;
     }
