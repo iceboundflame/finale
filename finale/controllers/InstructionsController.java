@@ -17,7 +17,7 @@ public class InstructionsController implements Controller {
     
     private InstructionsView view = new InstructionsView(this);
     private int page = 1;
-    private int numPages = 3;
+    private int numPages = 4;
     
     private ControllerChangeListener changeListener;
     

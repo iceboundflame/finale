@@ -15,10 +15,10 @@
    id="svg2"
    sodipodi:version="0.32"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="instructions3.svg"
+   sodipodi:docname="instructions4.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
-   inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics\instructions3.png"
+   inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics\instructions4.png"
    inkscape:export-xdpi="78.739998"
    inkscape:export-ydpi="78.739998"
    style="display:inline">
@@ -33,7 +33,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.57361527"
-     inkscape:cx="519.09455"
+     inkscape:cx="444.46822"
      inkscape:cy="202.57888"
      inkscape:document-units="cm"
      inkscape:current-layer="layer2"
@@ -2023,6 +2023,30 @@
          width="278.93262"
          id="rect4889"
          style="fill:#b14141;fill-opacity:0.48936169" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3909">
+      <rect
+         ry="34.866577"
+         y="234.56384"
+         x="24.406603"
+         height="186.53618"
+         width="273.70261"
+         id="rect3911"
+         style="opacity:0.28318583;fill:#ffffff;fill-opacity:0.48404254" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3914">
+      <rect
+         y="-16.475496"
+         x="882.12433"
+         height="92.396423"
+         width="554.37854"
+         id="rect3916"
+         style="opacity:0.28318583;fill:#000000;fill-opacity:0.48404254"
+         ry="29.636589" />
     </clipPath>
   </defs>
   <metadata
@@ -5222,60 +5246,22 @@
       </g>
     </g>
     <rect
-       y="174.05536"
+       y="74.685616"
        x="-54.908672"
-       height="338.23138"
+       height="437.6011"
        width="1016.8306"
        id="rect4161"
        style="fill:#000000;fill-opacity:0.62311557;fill-rule:evenodd;stroke:none;display:inline" />
     <image
-       y="-26.471554"
-       x="20.633869"
-       id="image3867"
-       xlink:href="file:///D:/sandbox/fbfinale/finale/art/scrshot3.png"
-       height="515"
-       width="760"
-       clip-path="url(#clipPath4646)"
-       transform="translate(-316.38594,-60.527155)" />
-    <g
-       id="g5033">
-      <image
-         transform="matrix(0.18562874,0,0,0.18562874,306.46566,350.77152)"
-         clip-path="url(#clipPath4887)"
-         y="-884.91443"
-         x="-287.14667"
-         id="image4863"
-         xlink:href="file:///D:/sandbox/fbfinale/finale/art/powerups.png"
-         height="921"
-         width="651" />
-      <image
-         transform="matrix(0.18562874,0,0,0.18562874,122.00686,406.45017)"
-         clip-path="url(#clipPath4883)"
-         y="-867.48114"
-         x="438.07812"
-         id="image4867"
-         xlink:href="file:///D:/sandbox/fbfinale/finale/art/powerups.png"
-         height="921"
-         width="651" />
-      <image
-         transform="matrix(0.18562874,0,0,0.18562874,50.165022,431.06207)"
-         clip-path="url(#clipPath4879)"
-         y="-912.80768"
-         x="1097.0564"
-         id="image4871"
-         xlink:href="file:///D:/sandbox/fbfinale/finale/art/powerups.png"
-         height="921"
-         width="651" />
-      <image
-         transform="matrix(0.18562874,0,0,0.18562874,-58.568576,356.00151)"
-         clip-path="url(#clipPath4875)"
-         width="651"
-         height="921"
-         xlink:href="file:///D:/sandbox/fbfinale/finale/art/powerups.png"
-         id="image4858"
-         x="1417.8289"
-         y="-184.09625" />
-    </g>
+       style="display:inline"
+       y="-18.439316"
+       x="865.81366"
+       id="image3868"
+       xlink:href="file:///D:/sandbox/fbfinale/finale/art/scrshot6-chain-destroyer-block.png"
+       height="377"
+       width="587"
+       clip-path="url(#clipPath3914)"
+       transform="translate(-720.76479,113.11307)" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -5283,31 +5269,6 @@
      inkscape:label="content"
      style="display:inline"
      transform="translate(0,-1.6796875e-4)">
-    <rect
-       style="fill:#000000;fill-opacity:0.62311557;fill-rule:evenodd;stroke:none"
-       id="rect4163"
-       width="1015.0872"
-       height="80.285851"
-       x="-53.165344"
-       y="74.172356" />
-    <text
-       id="text3177"
-       y="104.71243"
-       x="55.063858"
-       style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-       xml:space="preserve"><tspan
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         y="104.71243"
-         x="55.063858"
-         sodipodi:role="line"
-         id="tspan3844"><tspan
-   style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold"
-   id="tspan5039">Power Ups:</tspan> Some blocks are special. Match them to unleash</tspan><tspan
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         y="132.21243"
-         x="55.063858"
-         sodipodi:role="line"
-         id="tspan3848">the power within. (not always good!)</tspan></text>
     <text
        id="text3177-8"
        y="483.15234"
@@ -5318,69 +5279,33 @@
          y="483.15234"
          x="842.79266"
          sodipodi:role="line"
-         id="tspan3884">Press down to see next page</tspan></text>
-    <g
-       id="g5017"
-       transform="translate(4,2)">
-      <text
-         xml:space="preserve"
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         x="308.31564"
-         y="217.45558"
-         id="text3177-0"><tspan
-           id="tspan3848-6"
-           sodipodi:role="line"
-           x="308.31564"
-           y="217.45558"
-           style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
-   id="tspan4924"
-   style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold">Fast Timebar</tspan> makes it harder to</tspan><tspan
-           id="tspan4919"
-           sodipodi:role="line"
-           x="308.31564"
-           y="244.95558"
-           style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono">rack up comboes.</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         x="308.88498"
-         y="287.9718"
-         id="text3177-0-9"><tspan
-           id="tspan4919-5"
-           sodipodi:role="line"
-           x="308.88498"
-           y="287.9718"
-           style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
-   id="tspan4924-1"
-   style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold">Stop Timebar</tspan> makes it easier.</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         x="308.63791"
-         y="349.56171"
-         id="text3177-0-9-1"><tspan
-           id="tspan4919-5-8"
-           sodipodi:role="line"
-           x="308.63791"
-           y="349.56171"
-           style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
-             id="tspan4981"
-             style="font-weight:normal;-inkscape-font-specification:DejaVu Sans Mono"><tspan
-   id="tspan4983"
-   style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold">Confusion mode:</tspan> try it and see :)</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         x="308.63791"
-         y="410.57819"
-         id="text3177-0-9-1-3"><tspan
-           id="tspan4919-5-8-0"
-           sodipodi:role="line"
-           x="308.63791"
-           y="410.57819"
-           style="font-size:22px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono Bold">Color destroyers<tspan
-   id="tspan5012"
-   style="font-weight:normal;-inkscape-font-specification:DejaVu Sans Mono"> are highly coveted.</tspan></tspan></text>
-    </g>
-  </g>
+         id="tspan3884">Press down to return to menu</tspan></text>
+    <image
+       y="216.86691"
+       x="-22.772888"
+       id="image3857"
+       xlink:href="file:///D:/sandbox/fbfinale/finale/art/scrshot5-chain.png"
+       height="202.75351"
+       width="338.42499"
+       clip-path="url(#clipPath3909)"
+       transform="translate(4.5133425,-14.149931)" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3882"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(276.9326,-65.936284)"><flowRegion
+         id="flowRegion3884"><rect
+           id="rect3886"
+           width="509.05197"
+           height="252.78268"
+           x="55.786522"
+           y="288.60687" /></flowRegion><flowPara
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+         id="flowPara3900"><flowSpan
+   style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold"
+   id="flowSpan3890">Chain destroyers</flowSpan> are extremely helpful. When matched, contiguous blocks of the same color will also be part of the match. </flowPara><flowPara
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+         id="flowPara3892" /><flowPara
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+         id="flowPara3894">Each block destroyed by a chain destroyer is worth 25 points.</flowPara></flowRoot>  </g>
 </svg>
