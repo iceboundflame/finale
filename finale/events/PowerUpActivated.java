@@ -1,6 +1,6 @@
 package finale.events;
 
-import finale.animation.AnnouncePowerUp;
+import finale.animation.Announce;
 import finale.controllers.GameController;
 import finale.gameModel.powerUps.PowerUp;
 import finale.views.GameView;
@@ -23,7 +23,7 @@ public class PowerUpActivated implements GameEvent {
 	
 	public void action(GameController ctl, GameView view) {
 		ctl.addPowerUp(power);
-		view.animate(new AnnouncePowerUp(ctl, view, power, AnnouncePowerUp.QUICK));
+		view.animate(new Announce(ctl, view, power.getName()));
 	}
 
 }

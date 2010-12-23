@@ -9,6 +9,7 @@ import java.util.Queue;
 import finale.Controller;
 import finale.ControllerChangeListener;
 import finale.FinalePanel;
+import finale.animation.Announce;
 import finale.animation.FadeToWhiteThemeChange;
 import finale.animation.HiScoreFireworks;
 import finale.events.BlockDestroyed;
@@ -20,6 +21,7 @@ import finale.gameModel.Board;
 import finale.gameModel.Level;
 import finale.gameModel.Location;
 import finale.gameModel.TimeBar;
+import finale.gameModel.powerUps.ColorDestroy;
 import finale.gameModel.powerUps.PowerUp;
 import finale.views.GameView;
 import finale.views.ResourceManager;
@@ -52,6 +54,7 @@ public class GameController implements Controller
     private int gameScore = 0;
     private int squareLifeTime = 0;
     private boolean timeBarFrozen = false;
+    private boolean activeSquareFrozen = false;
     private List<PowerUp> activePowerUps = new LinkedList<PowerUp>();
     private boolean advancingLevel = false; // set to true when an animation is in progress to advance level
 
@@ -104,11 +107,13 @@ public class GameController implements Controller
         }
 
         // Drop the ActiveSquare
-        squareLifeTime++;
-        if (squareLifeTime >= level.getHoldTime()) {
-            int dropTime = squareLifeTime - level.getHoldTime();
-            if (dropTime % level.getDropPeriod() == 0)
-                dropActive();
+        if (!activeSquareFrozen) {
+	        squareLifeTime++;
+	        if (squareLifeTime >= level.getHoldTime()) {
+	            int dropTime = squareLifeTime - level.getHoldTime();
+	            if (dropTime % level.getDropPeriod() == 0)
+	                dropActive();
+	        }
         }
         
         // Level Up
@@ -347,6 +352,7 @@ public class GameController implements Controller
 				    break;
 				case KeyEvent.VK_F:
 				    timeBarFrozen = !timeBarFrozen;
+				    activeSquareFrozen = !activeSquareFrozen;
 				    cheated = true;
 				    break;
 				case KeyEvent.VK_C:
@@ -356,6 +362,10 @@ public class GameController implements Controller
 				case KeyEvent.VK_H:
 					// animation test
 				    view.animate(new HiScoreFireworks(view, this));
+				    break;
+				case KeyEvent.VK_O:
+					// animation test
+				    view.animate(new Announce(this, view, "Test Announcement"));
 				    break;
 				case KeyEvent.VK_X:
 					square = new ActiveSquare(
@@ -419,8 +429,11 @@ public class GameController implements Controller
        Freezes the timebar if true is passed, or de-freezes the timebar if false.
        @param timeBarFrozen true to freeze the timeBar, false to de-freeze.
      */
-    public void setTimeBarFrozen(boolean timeBarFrozen) {
-    	this.timeBarFrozen = timeBarFrozen;
+    public void setTimeBarFrozen(boolean frz) {
+    	timeBarFrozen = frz;
+    }
+    public void setActiveSquareFrozen(boolean frz) {
+    	activeSquareFrozen = frz;
     }
 
     public int getLevelNum() {

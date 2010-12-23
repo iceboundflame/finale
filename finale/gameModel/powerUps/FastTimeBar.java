@@ -12,7 +12,7 @@ public class FastTimeBar extends PowerUp {
 	private static final int lifetime = 200;
 
 	public String getName() {
-		return "Fast TimeBar";
+		return "Loss of time";
 	}
 	public String getShortName() {
 		return "fastbar";

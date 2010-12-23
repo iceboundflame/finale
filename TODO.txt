@@ -1,4 +1,5 @@
 TODO
+  Make levels more playable
   Invite your friends to play
   Credits
   Track # blocks cleared

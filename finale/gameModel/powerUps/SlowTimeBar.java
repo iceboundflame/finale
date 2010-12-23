@@ -13,7 +13,7 @@ public class SlowTimeBar extends PowerUp {
 	private static final int lifetime = 200;
 
 	public String getName() {
-		return "Slow TimeBar";
+		return "Time Freeze";
 	}
 	public String getShortName() {
 		return "slowbar";
@@ -29,10 +29,12 @@ public class SlowTimeBar extends PowerUp {
 //			if (timer % newPeriod == 0) {
 //				ctl.advanceTimeBar();
 //			}
-			ctl.setTimeBarFrozen(true); // don't allow GameController to advance it, we're taking over
+			ctl.setTimeBarFrozen(true);
+			ctl.setActiveSquareFrozen(true);
 			return true;
 		} else {
-			ctl.setTimeBarFrozen(false); // resume normal timebar advancing
+			ctl.setTimeBarFrozen(false);
+			ctl.setActiveSquareFrozen(false);
 			return false;
 		}
 	}
