@@ -125,11 +125,12 @@ public class GameOverController implements Controller {
 	                break;
 	            case KeyEvent.VK_ENTER:
 	            case KeyEvent.VK_SPACE:
-	            	if (selection == 0) // Submit
+	            	if (selection == 0) { // Submit
 	            		new ScoreReporter().postToFacebook(scoreResult);
-	            	
-	            	FinaleApplet applet = FinaleApplet.getInstance();
-	            	if (applet != null) applet.stopTheWorld();
+	            		
+		            	FinaleApplet applet = FinaleApplet.getInstance();
+		            	if (applet != null) applet.stopTheWorld();
+	            	}
 	            	
 	            	changeListener.transferControl(new MenuController());
 	                break;

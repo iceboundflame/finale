@@ -31,11 +31,16 @@ public class Announce implements Animation {
 	private final float NOMINAL_FONT_SIZE = 48f;
 	private final float NOMINAL_ALPHA = 1f;
 	private final float NOMINAL_SHADOW_OFFSET = 2f;
+	private Color color;
 	
-	public Announce(GameController ctl, GameView v, String text) {
+	public Announce(GameController ctl, GameView v, String text, Color col) {
 		duration = ENTER_DURATION+HANG_DURATION+EXIT_DURATION;
 		time = 0;
 		announcement = text;
+		color = col;
+	}
+	public Announce(GameController ctl, GameView v, String text) {
+		this(ctl, v, text, Color.WHITE);
 	}
 
 	public void draw(Graphics2D g, Rectangle b, Rectangle field) {
@@ -91,7 +96,7 @@ public class Announce implements Animation {
 			int shadow = (int)shadowOffset;
 			if (shadow < 1) shadow = 1;
 			DrawUtil.drawMultilineStringCentered(preG2D, x+shadow, y+shadow, announcement);
-			preG2D.setColor(Color.WHITE);
+			preG2D.setColor(color);
 			DrawUtil.drawMultilineStringCentered(preG2D, x, y, announcement);
 			
 			original = g.getComposite();

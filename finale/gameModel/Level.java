@@ -1,7 +1,10 @@
 package finale.gameModel;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
@@ -9,12 +12,8 @@ import java.util.regex.Pattern;
 
 import finale.views.ResourceManager;
 
-/**
- * 
- * 
- * @author Team FINALE
- */
 public class Level {
+	public static final int NUM_LEVELS = 6;
 
 	private int levelNum = 1;
 	private int timebarAdvancePeriod = 10;
@@ -128,7 +127,8 @@ public class Level {
 	}
 
 	public static boolean levelExists(int num) {
-		return ResourceManager.getInstance().getFileStream(levelFilename(num)) != null;
+		return num > 0 && num < NUM_LEVELS &&
+			ResourceManager.getInstance().getFileStream(levelFilename(num)) != null;
 	}
 	
 	private static String levelFilename(int num) {
@@ -138,5 +138,27 @@ public class Level {
 	public String getBlockMatchColor(boolean color) {
 		return color ? block1MatchColor : block2MatchColor;
 	}
-	
+
+	// hash of level files. extt is just a random function name.
+	public static String extt() {
+        try {
+        	ResourceManager res = ResourceManager.getInstance();
+        	MessageDigest md = MessageDigest.getInstance("SHA-1");
+	        for (int i = 1; i < NUM_LEVELS; ++i) {
+	        	InputStream fis = res.getFileStream(levelFilename(i));
+	        	byte[] dataBytes = new byte[1024];
+	        	int nread = fis.read(dataBytes);
+	        	while (nread > 0) {
+	        		md.update(dataBytes, 0, nread);
+	        		nread = fis.read(dataBytes);
+	        	}
+	        }
+	        byte[] hash = md.digest();
+	        BigInteger bi = new BigInteger(1, hash);
+	        return String.format("%0" + (hash.length << 1) + "x", bi);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	return "";
+        }
+	}
 }

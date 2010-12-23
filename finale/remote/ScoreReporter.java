@@ -1,6 +1,5 @@
 package finale.remote;
 
-import java.io.IOException;
 import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -10,6 +9,7 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 import finale.FinaleApplet;
+import finale.gameModel.Level;
 import finale.utils.ClientHttpRequest;
 import finale.utils.StringEscaper;
 
@@ -32,7 +32,7 @@ public class ScoreReporter {
 			Map<String, String> params = new TreeMap<String,String>();
 			String record = String.valueOf(score) + " "
 				+ String.valueOf(level) + " "
-				+ String.valueOf(playTime);
+				+ String.valueOf(playTime) + " " + Level.extt();
 			params.put("score", record);
 			params.put("vkey", generateScoreVerification(record));
 			params.put("tok", tok);

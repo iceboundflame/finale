@@ -1,5 +1,6 @@
 package finale.controllers;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -21,7 +22,6 @@ import finale.gameModel.Board;
 import finale.gameModel.Level;
 import finale.gameModel.Location;
 import finale.gameModel.TimeBar;
-import finale.gameModel.powerUps.ColorDestroy;
 import finale.gameModel.powerUps.Magnet;
 import finale.gameModel.powerUps.PowerUp;
 import finale.views.GameView;
@@ -333,6 +333,7 @@ public class GameController implements Controller
         keys.processKey( e );
 
         if (e.getID() == KeyEvent.KEY_PRESSED) {
+        	boolean wasCheater = cheated;
 	    	switch(e.getKeyCode()) {
 				case KeyEvent.VK_ESCAPE:
 				case KeyEvent.VK_P:
@@ -392,6 +393,10 @@ public class GameController implements Controller
 					view.animate(new Announce(this, view,
 							newState ? "Muted" : "Unmuted"));
 					break;
+	    	}
+	    	if (!wasCheater && cheated) {
+	    		view.animate(new Announce(this, view,
+	    				"Cheat activated", Color.RED));
 	    	}
         }
     }
