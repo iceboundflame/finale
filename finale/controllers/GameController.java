@@ -22,6 +22,7 @@ import finale.gameModel.Level;
 import finale.gameModel.Location;
 import finale.gameModel.TimeBar;
 import finale.gameModel.powerUps.ColorDestroy;
+import finale.gameModel.powerUps.Magnet;
 import finale.gameModel.powerUps.PowerUp;
 import finale.views.GameView;
 import finale.views.ResourceManager;
@@ -70,6 +71,7 @@ public class GameController implements Controller
     private static final int KEY_LEFT = KeyEvent.VK_LEFT;
     private static final int KEY_RIGHT = KeyEvent.VK_RIGHT;
     private static final int KEY_ROTATECW = KeyEvent.VK_UP;
+    private static final int KEY_ROTATECCW = KeyEvent.VK_CONTROL;
     private static final int KEY_HARDDROP = KeyEvent.VK_SPACE;
 
     /**
@@ -235,6 +237,8 @@ public class GameController implements Controller
         
         if (keys.getState(KEY_ROTATECW).isActive())
             square.rotate(ActiveSquare.CLOCKWISE);
+        if (keys.getState(KEY_ROTATECCW).isActive())
+            square.rotate(ActiveSquare.COUNTERCLOCKWISE);
         
         if (keys.getState(KEY_HARDDROP).isFirstPress()) {
         	int startrow = square.getLocation().getRow();
@@ -334,10 +338,6 @@ public class GameController implements Controller
 				case KeyEvent.VK_P:
 					changeListener.transferControl(new PauseController(this, view));
 					break;
-				case KeyEvent.VK_G:
-					board.gravitate();
-					cheated = true;
-					break;
 				case KeyEvent.VK_B:
 					timeBar.advance();
 					cheated = true;
@@ -355,7 +355,7 @@ public class GameController implements Controller
 				    activeSquareFrozen = !activeSquareFrozen;
 				    cheated = true;
 				    break;
-				case KeyEvent.VK_C:
+				case KeyEvent.VK_S:
 					// sound test
 				    ResourceManager.getInstance().playSound("deletion");
 				    break;
@@ -378,6 +378,19 @@ public class GameController implements Controller
 							board, DEFAULT_ACTIVESQUARE_LOC, ActiveSquare.CHAIN_DESTROYER);
 	                squareLifeTime = 0;
 					cheated = true;
+					break;
+				case KeyEvent.VK_C:
+					square = new ActiveSquare(
+							board, DEFAULT_ACTIVESQUARE_LOC,
+							ActiveSquare.POWERUP, new Magnet());
+	                squareLifeTime = 0;
+					cheated = true;
+					break;
+				case KeyEvent.VK_M:
+					boolean newState = !ResourceManager.getInstance().isMute();
+					ResourceManager.getInstance().setMute(newState);
+					view.animate(new Announce(this, view,
+							newState ? "Muted" : "Unmuted"));
 					break;
 	    	}
         }

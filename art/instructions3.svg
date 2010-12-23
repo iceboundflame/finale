@@ -18,7 +18,7 @@
    sodipodi:docname="instructions3.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.0"
-   inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics\instructions3.png"
+   inkscape:export-filename="D:\sandbox\fbfinale\finale\finale\resources\graphics-uncompress\instructions3.png"
    inkscape:export-xdpi="78.739998"
    inkscape:export-ydpi="78.739998"
    style="display:inline">
@@ -32,9 +32,9 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.57361527"
-     inkscape:cx="519.09455"
-     inkscape:cy="202.57888"
+     inkscape:zoom="0.81121449"
+     inkscape:cx="498.00483"
+     inkscape:cy="243.27083"
      inkscape:document-units="cm"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -5236,46 +5236,15 @@
        height="515"
        width="760"
        clip-path="url(#clipPath4646)"
-       transform="translate(-316.38594,-60.527155)" />
-    <g
-       id="g5033">
-      <image
-         transform="matrix(0.18562874,0,0,0.18562874,306.46566,350.77152)"
-         clip-path="url(#clipPath4887)"
-         y="-884.91443"
-         x="-287.14667"
-         id="image4863"
-         xlink:href="file:///D:/sandbox/fbfinale/finale/art/powerups.png"
-         height="921"
-         width="651" />
-      <image
-         transform="matrix(0.18562874,0,0,0.18562874,122.00686,406.45017)"
-         clip-path="url(#clipPath4883)"
-         y="-867.48114"
-         x="438.07812"
-         id="image4867"
-         xlink:href="file:///D:/sandbox/fbfinale/finale/art/powerups.png"
-         height="921"
-         width="651" />
-      <image
-         transform="matrix(0.18562874,0,0,0.18562874,50.165022,431.06207)"
-         clip-path="url(#clipPath4879)"
-         y="-912.80768"
-         x="1097.0564"
-         id="image4871"
-         xlink:href="file:///D:/sandbox/fbfinale/finale/art/powerups.png"
-         height="921"
-         width="651" />
-      <image
-         transform="matrix(0.18562874,0,0,0.18562874,-58.568576,356.00151)"
-         clip-path="url(#clipPath4875)"
-         width="651"
-         height="921"
-         xlink:href="file:///D:/sandbox/fbfinale/finale/art/powerups.png"
-         id="image4858"
-         x="1417.8289"
-         y="-184.09625" />
-    </g>
+       transform="translate(-306.38594,-70.527155)" />
+    <image
+       style="display:inline"
+       y="328.64319"
+       x="97.473953"
+       id="image3912-9"
+       xlink:href="file:///D:/sandbox/fbfinale/finale/art/power_fastbar.png"
+       height="24.003071"
+       width="24.003071" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -5320,67 +5289,145 @@
          sodipodi:role="line"
          id="tspan3884">Press down to see next page</tspan></text>
     <g
-       id="g5017"
-       transform="translate(4,2)">
+       id="g4006"
+       transform="translate(0,-14)">
+      <image
+         width="24.003071"
+         height="24.003071"
+         xlink:href="file:///D:/sandbox/fbfinale/finale/art/power_fastbar.png"
+         id="image3912"
+         x="267.2294"
+         y="208.17079"
+         style="display:inline" />
       <text
          xml:space="preserve"
          style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         x="308.31564"
-         y="217.45558"
+         x="312.31564"
+         y="225.45558"
          id="text3177-0"><tspan
            id="tspan3848-6"
            sodipodi:role="line"
-           x="308.31564"
-           y="217.45558"
+           x="312.31564"
+           y="225.45558"
            style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
    id="tspan4924"
    style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold">Fast Timebar</tspan> makes it harder to</tspan><tspan
            id="tspan4919"
            sodipodi:role="line"
-           x="308.31564"
-           y="244.95558"
+           x="312.31564"
+           y="252.95558"
            style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono">rack up comboes.</tspan></text>
+    </g>
+    <g
+       id="g4044"
+       transform="translate(0,-6.8953551)">
+      <image
+         width="24.003071"
+         height="24.003071"
+         xlink:href="file:///D:/sandbox/fbfinale/finale/art/power_slowbar.png"
+         id="image3868"
+         x="267.2294"
+         y="269.98563"
+         style="display:inline" />
       <text
          xml:space="preserve"
          style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         x="308.88498"
-         y="287.9718"
+         x="312.88498"
+         y="289.9718"
          id="text3177-0-9"><tspan
            id="tspan4919-5"
            sodipodi:role="line"
-           x="308.88498"
-           y="287.9718"
-           style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
-   id="tspan4924-1"
-   style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold">Stop Timebar</tspan> makes it easier.</tspan></text>
+           x="312.88498"
+           y="289.9718"
+           style="font-size:22px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono Bold">Time Freeze<tspan
+   style="font-weight:normal;-inkscape-font-specification:DejaVu Sans Mono"
+   id="tspan3962"> may give you a break.</tspan></tspan></text>
+    </g>
+    <g
+       id="g4021"
+       transform="translate(0,0.394272)">
+      <image
+         width="24.003071"
+         height="24.003071"
+         xlink:href="file:///D:/sandbox/fbfinale/finale/art/power_confusion.png"
+         id="image3890"
+         x="267.2294"
+         y="306.96725"
+         style="display:inline" />
       <text
          xml:space="preserve"
          style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         x="308.63791"
-         y="349.56171"
+         x="312.63791"
+         y="326.90732"
          id="text3177-0-9-1"><tspan
            id="tspan4919-5-8"
            sodipodi:role="line"
-           x="308.63791"
-           y="349.56171"
+           x="312.63791"
+           y="326.90732"
            style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"><tspan
              id="tspan4981"
              style="font-weight:normal;-inkscape-font-specification:DejaVu Sans Mono"><tspan
    id="tspan4983"
    style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold">Confusion mode:</tspan> try it and see :)</tspan></tspan></text>
+    </g>
+    <g
+       id="g4029"
+       transform="translate(0,9.1856042)">
+      <image
+         width="24.003071"
+         height="24.003071"
+         xlink:href="file:///D:/sandbox/fbfinale/finale/art/power_destroyer.png"
+         id="image3901"
+         x="267.2294"
+         y="342.25067"
+         style="display:inline" />
       <text
          xml:space="preserve"
          style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
-         x="308.63791"
-         y="410.57819"
+         x="312.63791"
+         y="360.80396"
          id="text3177-0-9-1-3"><tspan
            id="tspan4919-5-8-0"
            sodipodi:role="line"
-           x="308.63791"
-           y="410.57819"
+           x="312.63791"
+           y="360.80396"
            style="font-size:22px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono Bold">Color destroyers<tspan
    id="tspan5012"
    style="font-weight:normal;-inkscape-font-specification:DejaVu Sans Mono"> are highly coveted.</tspan></tspan></text>
+    </g>
+    <g
+       id="g4036"
+       transform="translate(0,19.999996)">
+      <image
+         width="24.003071"
+         height="24.003071"
+         xlink:href="file:///D:/sandbox/fbfinale/finale/art/power_magnet.png"
+         id="image3857"
+         x="268.72208"
+         y="374.99786"
+         style="display:inline" />
+      <text
+         id="text3979"
+         y="392.08737"
+         x="312.63791"
+         style="font-size:22px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono"
+         xml:space="preserve"><tspan
+           style="font-size:22px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono Bold"
+           y="392.08737"
+           x="312.63791"
+           sodipodi:role="line"
+           id="tspan3981"><tspan
+             style="font-weight:normal;-inkscape-font-specification:DejaVu Sans Mono"
+             id="tspan3983"><tspan
+   id="tspan3985"
+   style="font-weight:bold;-inkscape-font-specification:DejaVu Sans Mono Bold">Magnets</tspan> charge the board, shifting</tspan></tspan><tspan
+           style="font-size:22px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans Mono;-inkscape-font-specification:DejaVu Sans Mono Bold"
+           y="419.58737"
+           x="312.63791"
+           sodipodi:role="line"
+           id="tspan4050"><tspan
+             style="font-weight:normal;-inkscape-font-specification:DejaVu Sans Mono"
+             id="tspan4052">pieces to one side.</tspan></tspan></text>
     </g>
   </g>
 </svg>

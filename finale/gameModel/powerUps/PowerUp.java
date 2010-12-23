@@ -34,15 +34,22 @@ public abstract class PowerUp {
 	   @return : a random PowerUp 
 	 */
 	public static PowerUp createRandomPowerUp() {
-		switch((int)(Math.random() * 4)) {
+		switch((int)(Math.random() * 10)) {
 			case 0:
-				return new FastTimeBar();
 			case 1:
-				return new SlowTimeBar();
+				return new FastTimeBar();
 			case 2:
-				return new ConfusionMode();
 			case 3:
+				return new TimeFreeze();
+			case 4:
+			case 5:
+				return new ConfusionMode();
+			case 6:
+			case 7:
 				return new ColorDestroy(Math.random() < 0.5);
+			case 8:
+			case 9:
+				return new Magnet();
 		}
 		return null;
 	}

@@ -7,7 +7,7 @@ import finale.controllers.GameController;
     
     @author Team FINALE
 */
-public class SlowTimeBar extends PowerUp {
+public class TimeFreeze extends PowerUp {
 	
 	private int timer = 0;
 	private static final int lifetime = 200;

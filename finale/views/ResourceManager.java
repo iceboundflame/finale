@@ -31,6 +31,15 @@ public class ResourceManager {
 	private Map<String, AudioClip> soundCache = new HashMap<String, AudioClip>();
 	private Object cacheLock = new Object();
 	
+	private boolean isMuted;
+	
+	public void setMute(boolean m) {
+		isMuted = m;
+	}
+	public boolean isMute() {
+		return isMuted;
+	}
+	
 	private ResourceManager() {
 		//
 	}
@@ -127,6 +136,8 @@ public class ResourceManager {
 	}
 
 	public void playSound(String basename) {
+		if (isMuted)
+			return;
 		final String filename = basename + ".wav.au";
 		synchronized (cacheLock) {
 			if (soundCache.containsKey(filename)) {

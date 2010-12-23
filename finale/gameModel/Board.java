@@ -113,7 +113,6 @@ public class Board
     {
         Block old = board[loc.getRow()][loc.getCol()];
         board[loc.getRow()][loc.getCol()] = block;
-//        findMatches();
         return old;
     }
     
@@ -126,7 +125,6 @@ public class Board
     {
         Block old = board[loc.getRow()][loc.getCol()];
         board[loc.getRow()][loc.getCol()] = null;
-//        findMatches();
         return old;
     }
     
@@ -137,27 +135,20 @@ public class Board
     public void gravitate()
     {
         for (int c = 0; c < cols; c++) {
-            boolean rescan;
-            do {
-                rescan = false;
-                int firstEmpty = -1;
-                for (int r = 0; r < rows; r++) { // 0 is bottom of grid
-                    Location loc = new Location(r,c);
-                    if (get(loc) == null) {
-                        if (firstEmpty == -1)
-                            firstEmpty = r;
-                    } else if (firstEmpty > -1) {   // if we found a block, and there are one or more empty spaces below it
-                        // Drop the floating block
-//                      System.err.println("Dropped floating "+get(loc) +" to "+firstEmpty);
-                        // TODO: Generate Block Dropped event
-                        get(loc).moveTo(new Location(firstEmpty, c));
-                        
-                        // start the scanning loop over again
-                        rescan = true;
-                        break;
-                    }
+            int firstEmpty = -1;
+            for (int r = 0; r < rows; r++) { // 0 is bottom of grid
+                Location loc = new Location(r,c);
+                if (get(loc) == null) {
+                    if (firstEmpty == -1)
+                        firstEmpty = r;
+                } else if (firstEmpty > -1) {
+                	// we found a block and at least one empty space below it
+                    // TODO: Generate Block Dropped event
+                    get(loc).moveTo(new Location(firstEmpty, c));
+                    
+                    ++firstEmpty;
                 }
-            } while (rescan);
+            }
         }
         findMatches();
     }
@@ -206,9 +197,7 @@ public class Board
         }
     }
     
-    public Set<Location> getMatches()
-    {
-//      return new TreeSet<Location>(matches);  // clone to prevent concurrent modifications; FIXME: find real reason
+    public Set<Location> getMatches() {
         return matches;
     }
     

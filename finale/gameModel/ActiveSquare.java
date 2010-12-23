@@ -33,7 +33,7 @@ public class ActiveSquare
        @param loc the Location of this ActiveSquare
        @param color the color configuration for this ActiveSquare
      */
-    public ActiveSquare( Board board, Location loc, int special, int color )
+    public ActiveSquare( Board board, Location loc, int special, PowerUp pup, int color )
     {
         if ( color < 0 || color > 15 )
             throw new IllegalArgumentException( "Invalid color, must be between 0 and 15" );
@@ -41,9 +41,12 @@ public class ActiveSquare
         for (int i = 0; i < 4; i++) {
         	Block blk;
         	boolean blockColor = ((color & 0x1) == 1);
-        	if (i == 0 && special == POWERUP)
-        		blk = new PowerUpContainerBlock(PowerUp.createRandomPowerUp(), new Location(0,0), blockColor);
-        	else if (i == 0 && special == CHAIN_DESTROYER)
+        	if (i == 0 && special == POWERUP) {
+        		if (pup == null)
+        			pup = PowerUp.createRandomPowerUp();
+        		blk = new PowerUpContainerBlock(pup,
+        				new Location(0,0), blockColor);
+        	} else if (i == 0 && special == CHAIN_DESTROYER)
         		blk = new ChainDestroyerBlock(new Location(0,0), blockColor);
         	else
         		blk = new Block(new Location(0,0), blockColor);
@@ -59,7 +62,11 @@ public class ActiveSquare
 
     public ActiveSquare( Board board, Location loc, int special )
     {
-        this( board, loc, special, (int)( Math.random() * 16 ) ); // 0 <= colorConfig <= 15
+        this( board, loc, special, null, (int)( Math.random() * 16 ) ); // 0 <= colorConfig <= 15
+    }
+    public ActiveSquare( Board board, Location loc, int special, PowerUp pup )
+    {
+        this( board, loc, special, pup, (int)( Math.random() * 16 ) ); // 0 <= colorConfig <= 15
     }
 
     public ActiveSquare( Board board, Location loc )

@@ -1,6 +1,6 @@
-timebarAdvancePeriod=2
-holdTime=15
-dropPeriod=3
-scoreToAdvance=-1
+timebarAdvancePeriod=6
+holdTime=25
+dropPeriod=7
+scoreToAdvance=42000
 block1MatchColor=#ff00ff
 block2MatchColor=#000088

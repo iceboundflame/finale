@@ -1,5 +1,4 @@
 TODO
-  Make levels more playable
   Invite your friends to play
   Credits
   Track # blocks cleared
@@ -8,6 +7,7 @@ TODO
 BUGS
   Sometimes opens up with Graphics context error: NullPointerException + lag
 
+/ Make levels more playable
 / Was able to lose focus permanently somehow, despite menu still flashing
 /   Long-term focus solutions?
 / Internet Explorer issues
