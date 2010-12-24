@@ -14,25 +14,60 @@ import finale.utils.ClientHttpRequest;
 import finale.utils.StringEscaper;
 
 public class ScoreReporter {
-	private String submitURL, tok;
+	private String submitURL, logURL, tok, ua, uid;
 	private FinaleApplet applet;
 	
 	public ScoreReporter() {
 		applet = FinaleApplet.getInstance();
 		if (applet != null) {
 			submitURL = applet.getParameter("submiturl");
+			logURL = applet.getParameter("logurl");
 			tok = applet.getParameter("tok");
+			ua = applet.getParameter("ua");
+			uid = applet.getParameter("uid");
+		}
+	}
+
+	public static void logInBackground(final String event) {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				new ScoreReporter().log(event);
+			}
+		}).start();
+	}
+	
+	public void log(String event) {
+		if (logURL == null)
+			return;
+		
+		try {
+			Map<String, String> params = new TreeMap<String,String>();
+			String record = uid + " "
+				+ String.valueOf(event);
+			params.put("ua", ua);
+			params.put("event", record);
+			params.put("vkey", generateScoreVerification(record));
+			params.put("tok", tok);
+			
+			ClientHttpRequest.post(new URL(logURL), params);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
 	public ScoreResult submitScore(int score, int level, int playTime) {
 		if (submitURL == null)
 			return null;
+		
 		try {
 			Map<String, String> params = new TreeMap<String,String>();
 			String record = String.valueOf(score) + " "
 				+ String.valueOf(level) + " "
-				+ String.valueOf(playTime) + " " + Level.extt();
+				+ String.valueOf(playTime) + " "
+				+ Level.extt() + " "
+				+ uid;
+			params.put("ua", ua);
 			params.put("score", record);
 			params.put("vkey", generateScoreVerification(record));
 			params.put("tok", tok);

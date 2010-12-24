@@ -10,6 +10,7 @@ import java.util.Queue;
 import finale.Controller;
 import finale.ControllerChangeListener;
 import finale.FinalePanel;
+import finale.PerfTracker;
 import finale.animation.Announce;
 import finale.animation.FadeToWhiteThemeChange;
 import finale.animation.HiScoreFireworks;
@@ -24,6 +25,7 @@ import finale.gameModel.Location;
 import finale.gameModel.TimeBar;
 import finale.gameModel.powerUps.Magnet;
 import finale.gameModel.powerUps.PowerUp;
+import finale.remote.ScoreReporter;
 import finale.views.GameView;
 import finale.views.ResourceManager;
 
@@ -86,6 +88,9 @@ public class GameController implements Controller
 			upcoming.add(new ActiveSquare(board, DEFAULT_ACTIVESQUARE_LOC));
 		}
 		level = Level.loadLevel(1);
+		
+		ScoreReporter.logInBackground("game_started");
+		PerfTracker.getInstance().reset();
 	}
     
 	public void step() {

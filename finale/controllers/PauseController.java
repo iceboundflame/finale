@@ -4,7 +4,9 @@ import java.awt.event.KeyEvent;
 
 import finale.Controller;
 import finale.ControllerChangeListener;
+import finale.PerfTracker;
 import finale.View;
+import finale.remote.ScoreReporter;
 import finale.views.GameView;
 import finale.views.PauseView;
 
@@ -73,9 +75,13 @@ public class PauseController implements Controller {
 			changeListener.transferControl(oldCtl);
 			break;
 		case 1:
+			ScoreReporter.logInBackground("game_restarted " +
+					PerfTracker.getInstance().toString());
 			changeListener.transferControl(new ChallengeGameController());
 			break;
 		case 2:
+			ScoreReporter.logInBackground("game_quit " +
+					PerfTracker.getInstance().toString());
 			changeListener.transferControl(new MenuController());
 			break;
 		}

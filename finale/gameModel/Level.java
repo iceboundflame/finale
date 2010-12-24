@@ -127,7 +127,7 @@ public class Level {
 	}
 
 	public static boolean levelExists(int num) {
-		return num > 0 && num < NUM_LEVELS &&
+		return num >= 1 && num <= NUM_LEVELS &&
 			ResourceManager.getInstance().getFileStream(levelFilename(num)) != null;
 	}
 	
@@ -144,7 +144,7 @@ public class Level {
         try {
         	ResourceManager res = ResourceManager.getInstance();
         	MessageDigest md = MessageDigest.getInstance("SHA-1");
-	        for (int i = 1; i < NUM_LEVELS; ++i) {
+	        for (int i = 1; i <= NUM_LEVELS; ++i) {
 	        	InputStream fis = res.getFileStream(levelFilename(i));
 	        	byte[] dataBytes = new byte[1024];
 	        	int nread = fis.read(dataBytes);

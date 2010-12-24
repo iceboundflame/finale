@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import finale.Controller;
 import finale.ControllerChangeListener;
 import finale.FinaleApplet;
+import finale.PerfTracker;
 import finale.View;
 import finale.animation.HiScoreFireworks;
 import finale.remote.ScoreReporter;
@@ -53,6 +54,12 @@ public class GameOverController implements Controller {
 		level = gameCtl.getLevelNum();
 		cheated = gameCtl.getCheated();
 		final int playTime = gameCtl.getGameTime();
+
+		ScoreReporter.logInBackground("game_finished "
+				+score+" "+level+" "+playTime+" "+
+				(cheated?"cheated":"nocheats") + "\n" +
+				PerfTracker.getInstance().toString());
+		
 		if (!cheated) {
 			final ScoreReporter report = new ScoreReporter();
 			
