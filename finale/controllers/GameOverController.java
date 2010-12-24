@@ -55,11 +55,7 @@ public class GameOverController implements Controller {
 
 		PerfTracker perf = PerfTracker.getInstance();
 		perf.stop();
-		System.out.println(perf.toString());
-		ScoreReporter.logInBackground("game_finished "
-				+score+" "+level+" "+playTime+" "+
-				(cheated?"cheated":"nocheats") + "\n" +
-				perf.toString());
+		ScoreReporter.logInBackground("game_finished "+gameCtl.toString());
 		
 		if (!cheated) {
 			final ScoreReporter report = new ScoreReporter();
@@ -162,4 +158,8 @@ public class GameOverController implements Controller {
 		// TODO Auto-generated method stub
 	}
 
+	@Override
+	public String browserQuitting() {
+		return "";
+	}
 }

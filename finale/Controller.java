@@ -30,4 +30,10 @@ public interface Controller {
 	   @param c the new ControllerChangeListener
 	 */
 	void setControllerChangeListener(ControllerChangeListener c);
+	
+	/**
+	 * Browser is quitting.
+	 * @return any text to return to the server on last phone-home
+	 */
+	String browserQuitting();
 }

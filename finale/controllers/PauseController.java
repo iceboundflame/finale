@@ -71,6 +71,7 @@ public class PauseController implements Controller {
 	private void selected(int sel)
 	{
 		PerfTracker perf = PerfTracker.getInstance();
+		String desc = oldCtl.toString();
 		
 		System.out.println(menuitems[sel]);
 		switch (sel) {
@@ -79,15 +80,11 @@ public class PauseController implements Controller {
 				changeListener.transferControl(oldCtl);
 				break;
 			case 1:
-				System.out.println(perf.toString());
-				ScoreReporter.logInBackground("game_restarted "
-						+ perf.toString());
+				ScoreReporter.logInBackground("game_restarted "+desc);
 				changeListener.transferControl(new ChallengeGameController());
 				break;
 			case 2:
-				System.out.println(perf.toString());
-				ScoreReporter.logInBackground("game_quit "
-						+ perf.toString());
+				ScoreReporter.logInBackground("game_quit "+desc);
 				changeListener.transferControl(new MenuController());
 				break;
 		}
@@ -114,4 +111,8 @@ public class PauseController implements Controller {
 		selected(finalSelection);
 	}
 
+	@Override
+	public String browserQuitting() {
+		return oldCtl.browserQuitting(); // any last words?
+	}
 }

@@ -219,7 +219,8 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
                 
                 System.out.print("Load: "+load+"%");
                 System.out.print(" [ FPS: "+fps+" FrameDrops:"+drops+" Frames:"+rendersInLastSecond+" ]\n");
-                PerfTracker.getInstance().addSample(drops);
+                if (!isPaused)
+                	PerfTracker.getInstance().addSample(drops);
 
 //                float locPerSec = (float)Location.creations * 1000000000/statsElapsed;
 //                System.out.println("  Location instantiations: "+locPerSec+"/sec");
@@ -304,4 +305,10 @@ public class FinalePanel extends JPanel implements Runnable, ControllerChangeLis
         c = newController;
         newController.setControllerChangeListener(this);
     }
+
+	public Controller getController() {
+		// This horrible encapsulation violation is a hack
+		// for analytics purposes.
+		return c;
+	}
 }

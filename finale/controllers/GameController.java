@@ -44,6 +44,7 @@ public class GameController implements Controller
     /** The frequency of powerups appearing */
     private static double POWERUP_FREQUENCY = (1.0/36);
     private static double CHAIN_DESTROYER_FREQUENCY = (1.0/36);
+    private String id;
 
     private Board board;
     private GameView view;
@@ -80,6 +81,9 @@ public class GameController implements Controller
        Creates a new GameController.
      */
 	public GameController() {
+		// id is used to track game sessions on server
+		id = Integer.toHexString((int)(Math.random() * Integer.MAX_VALUE));
+		
 		board = new Board(12, 18);
 		view = new GameView(this, board);
 		timeBar = new TimeBar(board);
@@ -89,9 +93,26 @@ public class GameController implements Controller
 		}
 		level = Level.loadLevel(1);
 		
-		ScoreReporter.logInBackground("game_started");
+		ScoreReporter.logInBackground("game_started "+id);
 		PerfTracker.getInstance().reset();
 		PerfTracker.getInstance().start();
+	}
+	
+	public String getID() {
+		return id;
+	}
+	
+	public String toString() { // used in reporting analytics to server
+		return getID()+" "
+			+getScore()+" "+getLevelNum()+" "
+			+getGameTime()+" "
+			+(getCheated()?"cheated":"nocheats")+"\n"
+			+PerfTracker.getInstance().toString();
+	}
+
+	@Override
+	public String browserQuitting() {
+		return toString();
 	}
     
 	public void step() {

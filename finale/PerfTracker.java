@@ -36,8 +36,12 @@ public class PerfTracker {
 		BoxAndWhiskerItem stats = BoxAndWhiskerCalculator
 			.calculateBoxAndWhiskerStatistics(frameDrops);
 		
+		if (frameDrops.size() == 0) {
+			return "[Perf n=0]";
+		}
+		
 		return String.format(
-				"Perf A=%.3f %d (%.1f (%.1f %.1f %.1f %.1f %.1f) %.1f) %d n=%d",
+				"[Perf A=%.3f %d (%.1f (%.1f %.1f %.1f %.1f %.1f) %.1f) %d n=%d]",
 				stats.getMean(),
 				Collections.min(frameDrops),
 				stats.getMedian(),

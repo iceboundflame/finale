@@ -38,18 +38,24 @@ public class ScoreReporter {
 	}
 	
 	public void log(String event) {
+		System.out.println(event);
 		if (logURL == null)
 			return;
-		
+
 		try {
 			Map<String, String> params = new TreeMap<String,String>();
-			String record = uid + " "
+
+			String appletID = "NO_APPLET_ID?!";
+			applet = FinaleApplet.getInstance();
+			if (applet != null)
+				appletID = applet.getID();
+			String record = uid + " " + appletID + " " 
 				+ String.valueOf(event);
 			params.put("ua", ua);
 			params.put("event", record);
 			params.put("vkey", generateScoreVerification(record));
 			params.put("tok", tok);
-			
+
 			ClientHttpRequest.post(new URL(logURL), params);
 		} catch (Exception e) {
 			e.printStackTrace();

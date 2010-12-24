@@ -66,4 +66,8 @@ public class InstructionsController implements Controller {
         return page;
     }
 
+	@Override
+	public String browserQuitting() {
+		return "";
+	}
 }
