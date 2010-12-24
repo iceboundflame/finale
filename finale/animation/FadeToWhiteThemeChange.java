@@ -26,7 +26,6 @@ public class FadeToWhiteThemeChange implements Animation {
 	public static final int QUICK = 30;
 	
 	private GameController ctl;
-	private GameView view;
 	private int duration;
 	private int time;
 	private Level newLevel;
@@ -38,7 +37,6 @@ public class FadeToWhiteThemeChange implements Animation {
 	 */
 	public FadeToWhiteThemeChange(GameController ctl, GameView v, int dur, Level newLevel) {
 		this.ctl = ctl;
-		this.view = v;
 		this.duration = dur;
 		this.newLevel = newLevel;
 		time = 1;

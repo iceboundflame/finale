@@ -1,8 +1,6 @@
 package finale.events;
 
-import finale.animation.ExplosionParticle;
 import finale.controllers.GameController;
-import finale.gameModel.Location;
 import finale.views.GameView;
 /**
 An event that is called when blocks are destroyed. Draws explosion and play sound 

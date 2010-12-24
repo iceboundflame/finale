@@ -34,6 +34,7 @@ public class PauseController implements Controller {
 	
 	public PauseController(GameController oldCtl, GameView oldView)
 	{
+		PerfTracker.getInstance().stop();
 		this.oldCtl = oldCtl;
 		view = new PauseView(this, oldView);
 	}
@@ -69,21 +70,26 @@ public class PauseController implements Controller {
 	
 	private void selected(int sel)
 	{
+		PerfTracker perf = PerfTracker.getInstance();
+		
 		System.out.println(menuitems[sel]);
 		switch (sel) {
-		case 0:
-			changeListener.transferControl(oldCtl);
-			break;
-		case 1:
-			ScoreReporter.logInBackground("game_restarted " +
-					PerfTracker.getInstance().toString());
-			changeListener.transferControl(new ChallengeGameController());
-			break;
-		case 2:
-			ScoreReporter.logInBackground("game_quit " +
-					PerfTracker.getInstance().toString());
-			changeListener.transferControl(new MenuController());
-			break;
+			case 0:
+				perf.start();
+				changeListener.transferControl(oldCtl);
+				break;
+			case 1:
+				System.out.println(perf.toString());
+				ScoreReporter.logInBackground("game_restarted "
+						+ perf.toString());
+				changeListener.transferControl(new ChallengeGameController());
+				break;
+			case 2:
+				System.out.println(perf.toString());
+				ScoreReporter.logInBackground("game_quit "
+						+ perf.toString());
+				changeListener.transferControl(new MenuController());
+				break;
 		}
 	}
 	

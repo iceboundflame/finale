@@ -37,7 +37,7 @@ public class TestLocation {
     public void testCreations() {
         //test the instantiations counter
     	Location.creations = 0;
-        Location loc2 = new Location(5, 6);
+        new Location(5, 6);
         assertEquals(Location.creations, 1);
     }
 }

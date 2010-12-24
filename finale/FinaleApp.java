@@ -13,6 +13,7 @@ import javax.swing.JFrame;
    @version Jun 4, 2008
    @author FINALE
  */
+@SuppressWarnings("serial")
 public class FinaleApp extends JFrame implements WindowListener {
     private FinalePanel panel; // where the game is drawn
 

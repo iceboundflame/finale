@@ -32,5 +32,6 @@
         <javaElement handleIdentifier="=finale/&lt;finale.resources.levels"/>
         <javaElement handleIdentifier="=finale/&lt;finale.resources.graphics.level2"/>
         <javaElement handleIdentifier="=finale/&lt;finale.gameModel"/>
+        <javaElement handleIdentifier="=finale/&lt;org.jfree.data.statistics"/>
     </selectedElements>
 </jardesc>

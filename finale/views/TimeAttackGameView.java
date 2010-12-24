@@ -7,11 +7,11 @@ import finale.controllers.TimeAttackGameController;
 import finale.gameModel.Board;
 
 public class TimeAttackGameView extends GameView {
-	private TimeAttackGameController timeCtl;
+//	private TimeAttackGameController timeCtl;
 	
 	public TimeAttackGameView(TimeAttackGameController ctl, Board b) {
 		super (ctl, b);
-		this.timeCtl = ctl;
+//		this.timeCtl = ctl;
 	}
 	
 	protected void drawScore(Graphics2D g, Rectangle b) {

@@ -4,14 +4,12 @@ import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Composite;
 import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import finale.controllers.GameController;
 import finale.gameModel.Block;
-import finale.gameModel.powerUps.PowerUp;
 import finale.views.DrawUtil;
 import finale.views.GameView;
 import finale.views.ResourceManager;

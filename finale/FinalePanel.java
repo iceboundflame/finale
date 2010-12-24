@@ -12,7 +12,6 @@ import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -32,6 +31,7 @@ import finale.views.AppletPausedOverlay;
    @author FINALE
    @author Sources - Killer Game Programming in Java
  */
+@SuppressWarnings("serial")
 public class FinalePanel extends JPanel implements Runnable, ControllerChangeListener {
 	// Maximum number of frames that can be rendered without sleeping
 	// before a forced yield

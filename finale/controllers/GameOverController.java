@@ -7,11 +7,9 @@ import finale.ControllerChangeListener;
 import finale.FinaleApplet;
 import finale.PerfTracker;
 import finale.View;
-import finale.animation.HiScoreFireworks;
 import finale.remote.ScoreReporter;
 import finale.remote.ScoreResult;
 import finale.views.GameOverView;
-import finale.views.GameView;
 /**
 This HighScoreInputController controls name input for new high scores.  It will 
 save the entered name and high score
@@ -55,10 +53,13 @@ public class GameOverController implements Controller {
 		cheated = gameCtl.getCheated();
 		final int playTime = gameCtl.getGameTime();
 
+		PerfTracker perf = PerfTracker.getInstance();
+		perf.stop();
+		System.out.println(perf.toString());
 		ScoreReporter.logInBackground("game_finished "
 				+score+" "+level+" "+playTime+" "+
 				(cheated?"cheated":"nocheats") + "\n" +
-				PerfTracker.getInstance().toString());
+				perf.toString());
 		
 		if (!cheated) {
 			final ScoreReporter report = new ScoreReporter();

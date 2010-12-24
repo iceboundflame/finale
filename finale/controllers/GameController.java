@@ -91,6 +91,7 @@ public class GameController implements Controller
 		
 		ScoreReporter.logInBackground("game_started");
 		PerfTracker.getInstance().reset();
+		PerfTracker.getInstance().start();
 	}
     
 	public void step() {

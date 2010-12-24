@@ -1,17 +1,11 @@
 package finale.views;
 
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.LinkedList;
-import java.util.List;
 
 import finale.View;
-import finale.animation.Animation;
 import finale.controllers.MenuController;
 
 /**

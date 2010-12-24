@@ -1,35 +1,53 @@
 package finale;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.jfree.data.statistics.BoxAndWhiskerCalculator;
+import org.jfree.data.statistics.BoxAndWhiskerItem;
+
 public class PerfTracker {
 	private static PerfTracker inst = new PerfTracker();
-	private int frameDrops = 0;
-	private int time = 0;
+	private boolean isCollecting = true;
+	private List<Integer> frameDrops = new ArrayList<Integer>(1000);
 	
 	public static PerfTracker getInstance() {
 		return inst;
 	}
 	
 	public void reset() {
-		frameDrops = 0;
-		time = 0;
+		frameDrops.clear();
+	}
+	public void stop() {
+		isCollecting = false;
+	}
+	public void start() {
+		isCollecting = true;
 	}
 	
-	public float getFrameDropAvg() {
-		return (float)frameDrops/time;
-	}
-	public int getFrameDrops() {
-		return frameDrops;
-	}
-	public int getTime() {
-		return time;
-	}
 	public void addSample(int thisSecondDrops) {
-		frameDrops += thisSecondDrops;
-		++time;
+		if (!isCollecting) return;
+		
+		frameDrops.add(thisSecondDrops);
 	}
 	
 	public String toString() {
-		return String.format("[Perf: %.3f %d %d]",
-				getFrameDropAvg(), getFrameDrops(), getTime());
+		BoxAndWhiskerItem stats = BoxAndWhiskerCalculator
+			.calculateBoxAndWhiskerStatistics(frameDrops);
+		
+		return String.format(
+				"Perf A=%.3f %d (%.1f (%.1f %.1f %.1f %.1f %.1f) %.1f) %d n=%d",
+				stats.getMean(),
+				Collections.min(frameDrops),
+				stats.getMedian(),
+				stats.getMinRegularValue(),
+				stats.getQ1(),
+				stats.getMedian(),
+				stats.getQ3(),
+				stats.getMaxRegularValue(),
+				stats.getMaxOutlier(),
+				Collections.max(frameDrops),
+				frameDrops.size());
 	}
 }

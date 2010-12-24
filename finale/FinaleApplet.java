@@ -4,9 +4,8 @@ import java.awt.Container;
 
 import javax.swing.JApplet;
 
+@SuppressWarnings("serial")
 public class FinaleApplet extends JApplet {
-	private static final long serialVersionUID = 5586376760233578236L;
-
     private FinalePanel panel; // where the game is drawn
     
     private static FinaleApplet instance = null;

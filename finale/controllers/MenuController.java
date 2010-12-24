@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import finale.Controller;
 import finale.ControllerChangeListener;
 import finale.View;
+import finale.remote.ScoreReporter;
 import finale.views.MenuView;
 /**
 Controls actions in the start menu
@@ -14,7 +15,7 @@ Controls actions in the start menu
 @author team FINALE
 */
 public class MenuController implements Controller {
-    
+    private static boolean isFirstOpen = true;
     private View view = new MenuView(this);
     private int selection = 0;
     
@@ -25,6 +26,13 @@ public class MenuController implements Controller {
     };
 
     private ControllerChangeListener changeListener;
+    
+    public MenuController() {
+    	if (isFirstOpen) {
+    		ScoreReporter.logInBackground("applet_opened");
+    		isFirstOpen = false;
+    	}
+    }
     
     public void setControllerChangeListener(ControllerChangeListener c) {
         changeListener = c;

@@ -13,10 +13,9 @@ public class SquareMoved implements GameEvent {
     public static final int TYPE_FIRST = 16;
     public static final int TYPE_AUTODROP = 32;
     
-    private int dir, type;
+    private int type;
     
     public SquareMoved(int dir, int type) {
-    	this.dir = dir;
     	this.type = type;
     }
     
